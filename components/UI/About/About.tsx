@@ -76,7 +76,7 @@ export default function About() {
           <HeaderLine>Juan gonzalez</HeaderLine>
           <CommandLine command='ls' label='_resume' />
           <BodyLine>
-            Hello, I'm a Full-Stack developer based in
+            Hello, I&apos;m a Full-Stack developer based in
             Mexico. I love working with Web Technologies and
             mix them with 3D to making pages with a
             different taste and feeling.
@@ -88,8 +88,8 @@ export default function About() {
             Azure DevOps
           </BodyLine>
           <BodyLine>
-            I'm open to work with new technologies to solve
-            new challenges and get new opportunities
+            I&apos;m open to work with new technologies to
+            solve new challenges and get new opportunities
           </BodyLine>
           <div
             className={clsx("py-3 pl-[20px] flex gap-3")}>

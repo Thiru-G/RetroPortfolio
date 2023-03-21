@@ -42,7 +42,7 @@ export default function Table_Console({
   useEffect(() => {
     setHeadersState(headers);
     setDescriptionState(descriptions);
-  }, []);
+  }, [headers, descriptions]);
 
   return (
     <div className={clsx("w-full")}>
