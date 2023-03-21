@@ -6,13 +6,16 @@ import clsx from "clsx";
 import CommandLine from "@/components/common/consoles/console_lines/CommandLine";
 import ProyectCard from "@/components/common/cards/ProyectCard";
 import { useRouter } from "next/router";
+import { GiDeliveryDrone, GiGalaxy } from "react-icons/gi";
+import { IoMdPlanet } from "react-icons/io";
+import Logo from "@/components/common/icons/Logo";
 
 export default function Projects() {
   const router = useRouter();
   const [projects, setProjects] = useState([
     {
       id: 1,
-      image: "/bg/bg-vivid_1.jpg",
+      icon: <GiDeliveryDrone />,
       title: "Drone-It YourSelf",
       description: `This is a little project made in React and Three.js, where I explore the capabilities of Three.js for change a scene in hot reload(still working).`,
       techs: ["Three.js", "WebXR", "React"],
@@ -23,7 +26,7 @@ export default function Projects() {
     },
     {
       id: 2,
-      image: "/bg/bg-vivid_1.jpg",
+      icon: <IoMdPlanet />,
       title: "Noche de Estrellas",
       description: `This is a project I made for my university, I teach other students how to user the basics of WebXR / Hit Test and a little bit of Shaders with GLSL`,
       techs: [
@@ -40,7 +43,7 @@ export default function Projects() {
     },
     {
       id: 3,
-      image: "/bg/bg-vivid_1.jpg",
+      icon: <Logo />,
       title: "JohnScript YouTube",
       description: `I started a YouTube Channel, where I teach how to start and use Three.js mainly with React, also a little bit of WebXR. `,
       techs: [
@@ -85,7 +88,7 @@ export default function Projects() {
                   "w-full"
                 )}>
                 <ProyectCard
-                  image={project.image}
+                  icon={project.icon}
                   title={project.title}
                   description={project.description}
                   techs={project.techs}

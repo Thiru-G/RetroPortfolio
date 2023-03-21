@@ -6,7 +6,7 @@ import PrimaryButton from "../buttons/PrimaryButton";
 import Image from "next/image";
 
 interface ProyectCardProps {
-  image: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
   techs: Array<string>;
@@ -14,7 +14,7 @@ interface ProyectCardProps {
 }
 
 export default function ProyectCard({
-  image,
+  icon,
   title,
   description,
   techs,
@@ -25,15 +25,10 @@ export default function ProyectCard({
       <div
         className={clsx(
           "image_project",
-          "w-full h-[187px] relative"
+          "w-full h-[187px] relative",
+          "text-[150px] text-yellow-900 text-center flex justify-center items-center"
         )}>
-        <Image
-          src={image}
-          fill
-          alt='Mi imagen'
-          placeholder='blur'
-          blurDataURL='blur'
-        />
+        {icon}
       </div>
       <div
         className={clsx(

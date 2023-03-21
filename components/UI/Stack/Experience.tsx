@@ -102,12 +102,12 @@ export default function Experience() {
         },
         {
           prefix: "Cloud",
-          icon: <SiAzurepipelines />,
+          icon: <VscAzure />,
           label: "Azure",
         },
         {
           prefix: "CI/CD",
-          icon: <VscAzure />,
+          icon: <SiAzurepipelines />,
           label: "Azure DevOps",
         },
       ],

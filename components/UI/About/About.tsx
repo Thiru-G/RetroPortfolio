@@ -51,6 +51,11 @@ export default function About() {
     },
   };
 
+  function openCV() {
+    const fileUrl = "/cv/CV-English.pdf";
+    window.open(fileUrl);
+  }
+
   return (
     <ConsoleSecction
       id={"about"}
@@ -73,7 +78,7 @@ export default function About() {
           <BodyLine>
             Hello, I'm a Full-Stack developer based in
             Mexico. I love working with Web Technologies and
-            mix them the with 3D for making pages with a
+            mix them with 3D to making pages with a
             different taste and feeling.
           </BodyLine>
           <BodyLine>
@@ -83,13 +88,14 @@ export default function About() {
             Azure DevOps
           </BodyLine>
           <BodyLine>
-            But I'm not closed to work with new technologies
-            to solve new challenges and get new
-            opportunities
+            I'm open to work with new technologies to solve
+            new challenges and get new opportunities
           </BodyLine>
           <div
             className={clsx("py-3 pl-[20px] flex gap-3")}>
-            <PrimaryButton>Download CV</PrimaryButton>
+            <PrimaryButton event={() => openCV()}>
+              Download CV
+            </PrimaryButton>
           </div>
         </div>
         <div
