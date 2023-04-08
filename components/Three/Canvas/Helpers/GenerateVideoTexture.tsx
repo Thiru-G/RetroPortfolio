@@ -14,6 +14,7 @@ export const GenerateVideo = (
 
   const map = new THREE.VideoTexture(videoTag);
   map.encoding = THREE.sRGBEncoding;
+  map.flipY = false;
 
   return new THREE.MeshBasicMaterial({ map: map });
 };

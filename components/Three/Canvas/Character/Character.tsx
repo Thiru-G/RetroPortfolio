@@ -130,11 +130,11 @@ export default function Character() {
     <>
       <OrbitControls
         ref={controlsRef}
-        enableRotate={false}
-        enablePan={false}
-        maxZoom={5}
-        minDistance={15}
-        maxDistance={40}
+        // enableRotate={false}
+        // enablePan={false}
+        // maxZoom={5}
+        // minDistance={15}
+        // maxDistance={40}
       />
       <spotLight
         ref={spotLightRef}
