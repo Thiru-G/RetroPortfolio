@@ -6,8 +6,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./Three/Three.module.css";
-
 @layer components {
   .dark_glass {
     /* background: linear-gradient(
