@@ -1,0 +1,47 @@
+[33mcommit 93b99b67bf689f45a9c5f61f67454dab3acb6451[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: sirJohn72 <sirJohn72@outlook.es>
+Date:   Sat Apr 8 14:10:28 2023 -0600
+
+    green light added to the contact secction and video added in the main secction
+
+[33mcommit 8978453a67a58bdef92129fd80522136774a7ef7[m
+Author: sirJohn72 <sirJohn72@outlook.es>
+Date:   Sat Apr 8 02:43:06 2023 -0600
+
+    light helper removed from the directional light
+
+[33mcommit f920662b19f5c485d1af162fdce5876a715f8c83[m
+Author: sirJohn72 <sirJohn72@outlook.es>
+Date:   Sat Apr 8 02:38:51 2023 -0600
+
+    styled removed from the three module
+
+[33mcommit 01c461fb71d1d5f085beb4ec698d9825cc225d0c[m
+Author: sirJohn72 <sirJohn72@outlook.es>
+Date:   Sat Apr 8 02:28:41 2023 -0600
+
+    3d scene added
+
+[33mcommit b0e23ff1775d164e2a686916a79b8d393cd9053e[m
+Author: sirJohn72 <sirJohn72@outlook.es>
+Date:   Mon Mar 20 22:23:31 2023 -0600
+
+    fix(About, Table Console): Text and Table console fixed
+
+[33mcommit 73b4d324d5f3e3987b3c1faef19ee0e707faa74c[m
+Author: sirJohn72 <sirJohn72@outlook.es>
+Date:   Mon Mar 20 22:11:22 2023 -0600
+
+    Projects updated
+
+[33mcommit a08eaa04ccc4887d6035b587e9f9bd6052d189e8[m
+Author: sirJohn72 <sirJohn72@outlook.es>
+Date:   Mon Mar 20 17:51:22 2023 -0600
+
+    Project init
+
+[33mcommit 06d504ff40f222164e0c5ff9fd4a14d41a82728d[m
+Author: sirJohn72 <sirJohn72@outlook.es>
+Date:   Sat Mar 18 14:33:37 2023 -0600
+
+    Initial commit from Create Next App
