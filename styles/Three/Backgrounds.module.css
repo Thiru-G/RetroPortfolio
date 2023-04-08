@@ -1,0 +1,14 @@
+.bg--aqua {
+  background: #9fffef !important;
+  box-shadow: rgba(159, 255, 239, 0.9) 1px 1px 6px;
+}
+
+.border--aqua {
+  border: 1px solid #9fffef;
+  box-shadow: rgba(159, 255, 239, 0.9) 1px 1px 6px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}

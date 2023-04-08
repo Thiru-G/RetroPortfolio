@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "./Three/Three.module.css";
 
 @layer components {
   .dark_glass {
@@ -40,5 +45,9 @@
     -moz-transition: 0.3s fill ease;
     -ms-transition: 0.3s fill ease;
     -o-transition: 0.3s fill ease;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
   }
 }
