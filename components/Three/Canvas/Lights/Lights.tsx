@@ -8,9 +8,9 @@ import * as THREE from "three";
 
 export default function Lights() {
   const lightDirecRef = React.useRef<any>();
-  const shadowCameraRef = React.useRef<any>();
-  useHelper(lightDirecRef, THREE.SpotLightHelper);
-  useHelper(shadowCameraRef, THREE.CameraHelper);
+  // const shadowCameraRef = React.useRef<any>();
+  // useHelper(lightDirecRef, THREE.SpotLightHelper);
+  // useHelper(shadowCameraRef, THREE.CameraHelper);
 
   return (
     <>
@@ -36,11 +36,7 @@ export default function Lights() {
         shadow-camera-far={155}
         shadow-camera-near={185}
         position={[90 / 2, 180, 20]}
-        target-position={[90 / 2, 0, 0]}>
-        <perspectiveCamera
-          ref={shadowCameraRef}
-          attach={"shadow-camera"}></perspectiveCamera>
-      </directionalLight>
+        target-position={[90 / 2, 0, 0]}></directionalLight>
 
       {/* <spotLight
         ref={lightDirecRef}
