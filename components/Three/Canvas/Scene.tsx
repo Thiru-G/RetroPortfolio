@@ -11,16 +11,18 @@ import {
 
 import { DesktopModel } from "./Models/Desktop";
 import { HomeSecction } from "./Models/HomeSecction";
-import { ProjectsSecction } from "./Models/ProjectSecction";
+import { ProjectSecction } from "./Models/ProjectSecction";
 import { TechsSecction } from "./Models/TechsSecction";
 import { YouTubeSecction } from "./Models/YouTubeSecction";
 import { ContactSecction } from "./Models/ContactSecction";
 import { Wall } from "./Models/Wall";
 
 import { Physics, Debug } from "@react-three/cannon";
-import PlaneSecctionPhysics from "./Physics/PlaneSecctionPhysics";
-import HomeSecctionPhysic from "./Physics/HomeSecctionPhysic";
-import Movement from "./Physics/Movement";
+import PlaneSecctionPhysics from "./Physics/Utils/PlaneSecctionPhysics";
+import HomeStatics from "./Physics/Statics/HomeStatics";
+import { HomeDynamics } from "./Physics/Dynamics/HomeDynamics";
+import AboutStatics from "./Physics/Statics/AboutStatics";
+import { ProjectDynamics } from "./Physics/Dynamics/ProjectDynamics";
 
 export default function Scene() {
   const [paused, setPaused] = React.useState(false);
@@ -30,26 +32,29 @@ export default function Scene() {
       gl={{ powerPreference: "high-performance" }}
       dpr={1}>
       <color attach='background' args={["#1e1e1e"]} />
-      <ContactShadows
+      {/* <ContactShadows
         height={20}
         width={20}
         blur={0.2}
         color={"#1e1e1e"}
         // position={[45, 0, 0]}
       />
-      <BakeShadows />
+      <BakeShadows /> */}
       <Camera />
 
       {/* 
         Scene models
       */}
-      {/* <DesktopModel />
       <HomeSecction />
-      <ProjectsSecction />
+      <ProjectSecction />
+
+      <DesktopModel />
+      <Wall />
+      {/*
       <TechsSecction />
       <YouTubeSecction />
       <ContactSecction />
-      <Wall /> */}
+      */}
 
       {/* 
         Physics Secctions
@@ -57,14 +62,23 @@ export default function Scene() {
       <Physics
         broadphase='SAP'
         gravity={[0, -9.8, 0]}
-        frictionGravity={[0, 1, 0]}>
-        <Debug color='black' scale={1.01}>
-          {/* Character */}
-          {/* <Movement /> */}
-          <Character />
-          <HomeSecctionPhysic />
-          <PlaneSecctionPhysics />
-        </Debug>
+        frictionGravity={[0, 1, 0]}
+        defaultContactMaterial={{ restitution: 0.3 }}>
+        {/* <Debug color='black' scale={1.01}>
+        </Debug> */}
+        {/* Character */}
+        <Character />
+
+        {/* Statics */}
+        <HomeStatics />
+        <AboutStatics />
+
+        {/* Dynamics */}
+        <HomeDynamics />
+        <ProjectDynamics />
+
+        {/* Basic */}
+        <PlaneSecctionPhysics />
       </Physics>
 
       <Lights />

@@ -6,7 +6,6 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
-import { GenerateVideo } from "../Helpers/GenerateVideoTexture";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -51,15 +50,6 @@ type GLTFResult = GLTF & {
     Catenary006: THREE.Mesh;
     Catenary007: THREE.Mesh;
     Plane108: THREE.Mesh;
-    Circle010_1: THREE.Mesh;
-    Circle010_2: THREE.Mesh;
-    Circle010_3: THREE.Mesh;
-    Circle017_1: THREE.Mesh;
-    Circle017_2: THREE.Mesh;
-    Circle017_3: THREE.Mesh;
-    Circle018_1: THREE.Mesh;
-    Circle018_2: THREE.Mesh;
-    Circle018_3: THREE.Mesh;
     Circle016: THREE.Mesh;
     Circle022_1: THREE.Mesh;
     Circle022_2: THREE.Mesh;
@@ -73,14 +63,14 @@ type GLTFResult = GLTF & {
     Circle036_1: THREE.Mesh;
     Plane126: THREE.Mesh;
     Plane127: THREE.Mesh;
+    Circle026: THREE.Mesh;
     Circle026_1: THREE.Mesh;
-    Circle026_2: THREE.Mesh;
     Circle031: THREE.Mesh;
     Circle031_1: THREE.Mesh;
     Plane121: THREE.Mesh;
+    PC_Window: THREE.Mesh;
     Circle006: THREE.Mesh;
     Plane218: THREE.Mesh;
-    PC_Window: THREE.Mesh;
   };
   materials: {
     cream_dark: THREE.MeshStandardMaterial;
@@ -89,14 +79,12 @@ type GLTFResult = GLTF & {
     cream_naranja_intenso: THREE.MeshStandardMaterial;
     cream_rosa_fuerte: THREE.MeshStandardMaterial;
     cream_verde_azulado_oscuro: THREE.MeshStandardMaterial;
-    cream_paper_kraft: THREE.MeshStandardMaterial;
     cream_grey_metallic: THREE.MeshStandardMaterial;
     cream_yellow: THREE.MeshStandardMaterial;
     cream_dark_wood: THREE.MeshStandardMaterial;
     cream_red: THREE.MeshStandardMaterial;
     cream_green: THREE.MeshStandardMaterial;
     postips: THREE.MeshStandardMaterial;
-    Game_Ports: THREE.MeshStandardMaterial;
   };
 };
 
@@ -114,6 +102,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane015.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane016'
@@ -121,6 +110,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane016.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane017'
@@ -128,6 +118,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane017.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane018'
@@ -135,6 +126,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane018.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane066'
@@ -142,6 +134,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane066.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane067'
@@ -149,6 +142,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane067.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane068'
@@ -156,6 +150,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane068.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane005'
@@ -163,6 +158,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane005.geometry}
         material={materials.cream_yellow_light}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane006'
@@ -170,6 +166,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane006.geometry}
         material={materials.cream_grey}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane007'
@@ -177,6 +174,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane007.geometry}
         material={materials.cream_yellow_light}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane008'
@@ -184,27 +182,31 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane008.geometry}
         material={materials.cream_grey}
+        position={[0, 0, -3.02]}
       />
-      <mesh
-        name='Plane005_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane005_1.geometry}
-        material={materials.cream_grey}
-      />
-      <mesh
-        name='Plane005_2'
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane005_2.geometry}
-        material={materials.cream_dark}
-      />
+      <group name='Plane009' position={[0, 0, -3.02]}>
+        <mesh
+          name='Plane005_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane005_1.geometry}
+          material={materials.cream_grey}
+        />
+        <mesh
+          name='Plane005_2'
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane005_2.geometry}
+          material={materials.cream_dark}
+        />
+      </group>
       <mesh
         name='Plane010'
         castShadow
         receiveShadow
         geometry={nodes.Plane010.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane011'
@@ -212,6 +214,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane011.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane012'
@@ -219,6 +222,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane012.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane013'
@@ -226,6 +230,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane013.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane069'
@@ -233,6 +238,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane069.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane070'
@@ -240,6 +246,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane070.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane071'
@@ -247,6 +254,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane071.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane072'
@@ -254,6 +262,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane072.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane073'
@@ -261,6 +270,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane073.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane074'
@@ -268,6 +278,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane074.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane075'
@@ -275,6 +286,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane075.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane076'
@@ -282,6 +294,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane076.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane077'
@@ -289,6 +302,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane077.geometry}
         material={materials.cream_naranja_intenso}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane078'
@@ -296,6 +310,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane078.geometry}
         material={nodes.Plane078.material}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Circle007'
@@ -303,27 +318,31 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Circle007.geometry}
         material={materials.cream_yellow_light}
+        position={[0, 0, -3.02]}
       />
-      <mesh
-        name='Plane113'
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane113.geometry}
-        material={materials.cream_yellow_light}
-      />
-      <mesh
-        name='Plane113_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane113_1.geometry}
-        material={materials.cream_dark}
-      />
+      <group name='Plane109' position={[0, 0, -3.02]}>
+        <mesh
+          name='Plane113'
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane113.geometry}
+          material={materials.cream_yellow_light}
+        />
+        <mesh
+          name='Plane113_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane113_1.geometry}
+          material={materials.cream_dark}
+        />
+      </group>
       <mesh
         name='Plane110'
         castShadow
         receiveShadow
         geometry={nodes.Plane110.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Circle012'
@@ -331,6 +350,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Circle012.geometry}
         material={materials.cream_rosa_fuerte}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane106'
@@ -338,6 +358,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane106.geometry}
         material={materials.cream_yellow_light}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane105'
@@ -345,6 +366,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane105.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Sphere003'
@@ -352,6 +374,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Sphere003.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane107'
@@ -359,6 +382,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane107.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Circle010'
@@ -366,6 +390,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Circle010.geometry}
         material={materials.cream_rosa_fuerte}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Circle011'
@@ -373,6 +398,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Circle011.geometry}
         material={materials.cream_verde_azulado_oscuro}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Catenary006'
@@ -380,6 +406,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Catenary006.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Catenary007'
@@ -387,6 +414,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Catenary007.geometry}
         material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane108'
@@ -394,69 +422,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane108.geometry}
         material={materials.cream_dark}
-      />
-      <mesh
-        name='Circle010_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle010_1.geometry}
-        material={materials.cream_paper_kraft}
-      />
-      <mesh
-        name='Circle010_2'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle010_2.geometry}
-        material={materials.cream_yellow_light}
-      />
-      <mesh
-        name='Circle010_3'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle010_3.geometry}
-        material={materials.cream_dark}
-      />
-      <mesh
-        name='Circle017_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle017_1.geometry}
-        material={materials.cream_paper_kraft}
-      />
-      <mesh
-        name='Circle017_2'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle017_2.geometry}
-        material={materials.cream_yellow_light}
-      />
-      <mesh
-        name='Circle017_3'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle017_3.geometry}
-        material={materials.cream_dark}
-      />
-      <mesh
-        name='Circle018_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle018_1.geometry}
-        material={materials.cream_paper_kraft}
-      />
-      <mesh
-        name='Circle018_2'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle018_2.geometry}
-        material={materials.cream_yellow_light}
-      />
-      <mesh
-        name='Circle018_3'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle018_3.geometry}
-        material={materials.cream_dark}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Circle016'
@@ -464,84 +430,95 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Circle016.geometry}
         material={materials.cream_grey_metallic}
+        position={[0, 0, -3.02]}
       />
-      <mesh
-        name='Circle022_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle022_1.geometry}
-        material={materials.cream_grey}
-      />
-      <mesh
-        name='Circle022_2'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle022_2.geometry}
-        material={materials.cream_dark}
-      />
-      <mesh
-        name='Circle027'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle027.geometry}
-        material={materials.cream_grey}
-      />
-      <mesh
-        name='Circle027_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle027_1.geometry}
-        material={materials.cream_verde_azulado_oscuro}
-      />
-      <mesh
-        name='Circle028'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle028.geometry}
-        material={materials.cream_grey}
-      />
-      <mesh
-        name='Circle028_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle028_1.geometry}
-        material={materials.cream_yellow}
-      />
-      <mesh
-        name='Circle029'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle029.geometry}
-        material={materials.cream_grey}
-      />
-      <mesh
-        name='Circle029_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle029_1.geometry}
-        material={materials.cream_rosa_fuerte}
-      />
-      <mesh
-        name='Circle036'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle036.geometry}
-        material={materials.cream_grey_metallic}
-      />
-      <mesh
-        name='Circle036_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle036_1.geometry}
-        material={materials.cream_dark_wood}
-      />
+      <group name='Circle019' position={[0, 0, -3.02]}>
+        <mesh
+          name='Circle022_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle022_1.geometry}
+          material={materials.cream_grey}
+        />
+        <mesh
+          name='Circle022_2'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle022_2.geometry}
+          material={materials.cream_dark}
+        />
+      </group>
+      <group name='Circle017' position={[0, 0, -3.02]}>
+        <mesh
+          name='Circle027'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle027.geometry}
+          material={materials.cream_grey}
+        />
+        <mesh
+          name='Circle027_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle027_1.geometry}
+          material={materials.cream_verde_azulado_oscuro}
+        />
+      </group>
+      <group name='Circle018' position={[0, 0, -3.02]}>
+        <mesh
+          name='Circle028'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle028.geometry}
+          material={materials.cream_grey}
+        />
+        <mesh
+          name='Circle028_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle028_1.geometry}
+          material={materials.cream_yellow}
+        />
+      </group>
+      <group name='Circle022' position={[0, 0, -3.02]}>
+        <mesh
+          name='Circle029'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle029.geometry}
+          material={materials.cream_grey}
+        />
+        <mesh
+          name='Circle029_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle029_1.geometry}
+          material={materials.cream_rosa_fuerte}
+        />
+      </group>
+      <group name='Tarro' position={[0, 0, -3.02]}>
+        <mesh
+          name='Circle036'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle036.geometry}
+          material={materials.cream_grey_metallic}
+        />
+        <mesh
+          name='Circle036_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle036_1.geometry}
+          material={materials.cream_dark_wood}
+        />
+      </group>
       <mesh
         name='Plane126'
         castShadow
         receiveShadow
         geometry={nodes.Plane126.geometry}
         material={materials.cream_grey_metallic}
-        position={[6.61, 3.29, -5.84]}
+        position={[6.61, 3.29, -8.86]}
         rotation={[-Math.PI, 0.2, 0]}
         scale={[0.59, 1.97, 1.97]}
       />
@@ -551,50 +528,61 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane127.geometry}
         material={materials.cream_grey_metallic}
-        position={[5.75, 3.29, -1.56]}
+        position={[5.75, 3.29, -4.59]}
         rotation={[-Math.PI, 0.2, 0]}
         scale={[0.52, 1.28, 0.96]}
       />
       <group
         name='Circle020'
-        position={[5.75, 3.29, -1.56]}
+        position={[5.75, 3.29, -4.59]}
         rotation={[Math.PI / 2, 0, 0.2]}
         scale={0.29}>
+        <mesh
+          name='Circle026'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle026.geometry}
+          material={materials.cream_dark}
+        />
         <mesh
           name='Circle026_1'
           castShadow
           receiveShadow
           geometry={nodes.Circle026_1.geometry}
-          material={materials.cream_dark}
-        />
-        <mesh
-          name='Circle026_2'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle026_2.geometry}
           material={materials.cream_grey_metallic}
         />
       </group>
-      <mesh
-        name='Circle031'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle031.geometry}
-        material={materials.cream_red}
-      />
-      <mesh
-        name='Circle031_1'
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle031_1.geometry}
-        material={materials.cream_dark_wood}
-      />
+      <group name='Circle048' position={[0, 0, -3.02]}>
+        <mesh
+          name='Circle031'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle031.geometry}
+          material={materials.cream_red}
+        />
+        <mesh
+          name='Circle031_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle031_1.geometry}
+          material={materials.cream_dark_wood}
+        />
+      </group>
       <mesh
         name='Plane121'
         castShadow
         receiveShadow
         geometry={nodes.Plane121.geometry}
         material={materials.cream_green}
+        position={[0, 0, -3.02]}
+      />
+      <mesh
+        name='PC_Window'
+        castShadow
+        receiveShadow
+        geometry={nodes.PC_Window.geometry}
+        material={nodes.PC_Window.material}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Circle006'
@@ -602,6 +590,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Circle006.geometry}
         material={materials.cream_grey}
+        position={[0, 0, -3.02]}
       />
       <mesh
         name='Plane218'
@@ -609,13 +598,7 @@ export function HomeSecction(
         receiveShadow
         geometry={nodes.Plane218.geometry}
         material={materials.postips}
-      />
-      <mesh
-        name='PC_Window'
-        castShadow
-        receiveShadow
-        geometry={nodes.PC_Window.geometry}
-        material={GenerateVideo("/videos/init.mp4")}
+        position={[0, 0, -3.02]}
       />
     </group>
   );

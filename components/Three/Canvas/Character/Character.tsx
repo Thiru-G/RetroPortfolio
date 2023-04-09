@@ -82,14 +82,15 @@ export default function Character() {
 
     // For tracker the movement of the player
     spherePlayerAPI.position.subscribe((v) => {
-      console.log(v);
       model.scene.position.x = v[0];
       model.scene.position.z = v[2];
 
       controlsRef.current.target.x = v[0];
+      controlsRef.current.target.y = 2;
       controlsRef.current.target.z = v[2];
 
       camera.position.x = v[0];
+
       camera.position.z = v[2] + 20;
     });
 
@@ -112,47 +113,47 @@ export default function Character() {
 
       if (foward) {
         spherePlayerAPI.applyForce(
-          [0, 0, -FORCE],
+          [0, 0, -FORCE * 2],
           [0, 0, 0]
         );
         if (left) {
           spherePlayerAPI.applyForce(
-            [-FORCE / 2, 0, -FORCE],
+            [-FORCE, 0, -FORCE / 4],
             [0, 0, 0]
           );
         }
         if (right) {
           spherePlayerAPI.applyForce(
-            [FORCE / 2, 0, -FORCE],
+            [FORCE, 0, -FORCE / 4],
             [0, 0, 0]
           );
         }
       } else if (backward) {
         spherePlayerAPI.applyForce(
-          [0, 0, FORCE],
+          [0, 0, FORCE * 2],
           [0, 0, 0]
         );
 
         if (backward && left) {
           spherePlayerAPI.applyForce(
-            [-FORCE / 2, 0, FORCE],
+            [-FORCE, 0, FORCE / 4],
             [0, 0, 0]
           );
         }
         if (backward && right) {
           spherePlayerAPI.applyForce(
-            [FORCE / 2, 0, FORCE],
+            [FORCE, 0, FORCE / 4],
             [0, 0, 0]
           );
         }
       } else if (left) {
         spherePlayerAPI.applyForce(
-          [-FORCE, 0, 0],
+          [-FORCE * 2, 0, 0],
           [0, 0, 0]
         );
       } else if (right) {
         spherePlayerAPI.applyForce(
-          [FORCE, 0, 0],
+          [FORCE * 2, 0, 0],
           [0, 0, 0]
         );
       }
@@ -190,9 +191,9 @@ export default function Character() {
       <mesh position={[0, 2, 0]} ref={spherePlayer}>
         <sphereGeometry args={[1, 16, 15]} />
         <meshBasicMaterial
-          color={"0xff00ff"}
+          color={0xff00ff}
           transparent
-          opacity={0.4}
+          opacity={0}
         />
       </mesh>
 

@@ -1,0 +1,140 @@
+import React from "react";
+import {
+  useBox,
+  useCylinder,
+  useConvexPolyhedron,
+  ConvexPolyhedronArgs,
+} from "@react-three/cannon";
+import { IcosahedronGeometry } from "three";
+import CannonUtils from "../Utils/CannonUtils";
+
+interface ColliderProps {
+  id: string;
+  args: Array<number>;
+  scale: [number, number, number];
+  position: [number, number, number];
+  mass: number;
+  type: "Dynamic" | "Static";
+}
+
+export function CuboidCollider({
+  id,
+  args,
+  scale,
+  position,
+  mass,
+  type,
+}: ColliderProps) {
+  const [cuboid, cuboidAPI] = useBox<any>(() => ({
+    type: type,
+    args: [args[0], args[1], args[2]],
+    position: [...position],
+    mass: mass,
+    scale: [...scale],
+  }));
+
+  React.useEffect(() => {
+    cuboidAPI.position.set(
+      position[0],
+      position[1],
+      position[2]
+    );
+  }, [position]);
+
+  return (
+    <mesh ref={cuboid} position={position}>
+      <boxGeometry args={[args[0], args[1], args[2]]} />
+      <meshBasicMaterial
+        color={0xffffff}
+        transparent
+        opacity={0}
+      />
+    </mesh>
+  );
+}
+
+interface ColliderPropsDynamic {
+  id: string;
+  args: Array<number>;
+  scale: [number, number, number];
+  position: [number, number, number];
+  rotation: [number, number, number];
+  mass: number;
+  type: "Dynamic" | "Static";
+  children: any;
+}
+
+export function CylinderCollider({
+  id,
+  args,
+  scale,
+  position,
+  rotation,
+  mass,
+  type,
+  children,
+}: ColliderPropsDynamic) {
+  const [cylinder, cylinderAPI] = useCylinder<any>(() => ({
+    type: type,
+    args: [args[0], args[1], args[2]],
+    position: [...position],
+    rotation: [...rotation],
+    mass: mass,
+    scale: [...scale],
+  }));
+
+  return (
+    <group ref={cylinder} position={position}>
+      {/* <cylinderGeometry
+        args={[args[0], args[1], args[2], args[3]]}
+      /> */}
+      {children}
+    </group>
+  );
+}
+
+interface IcosphereColliderProps {
+  id: string;
+  args: number;
+  scale: [number, number, number];
+  position: [number, number, number];
+  rotation: [number, number, number];
+  mass: number;
+  type: "Dynamic" | "Static";
+  children: any;
+}
+export function IcosphereCollider({
+  id,
+  args,
+  scale,
+  position,
+  rotation,
+  mass,
+  type,
+  children,
+}: IcosphereColliderProps) {
+  const geometry = React.useMemo(
+    () => new IcosahedronGeometry(args, 0),
+    []
+  );
+  const argss = React.useMemo(
+    () => CannonUtils.toConvexPolyhedronProps(geometry),
+    [geometry]
+  );
+
+  const [icosphere, icosphereAPI] =
+    useConvexPolyhedron<any>(() => ({
+      type: type,
+      position: [...position],
+      args: argss as ConvexPolyhedronArgs,
+      rotation: [...rotation],
+      mass: mass,
+      scale: [...scale],
+    }));
+
+  return (
+    <group ref={icosphere} position={position}>
+      {children}
+    </group>
+  );
+}

@@ -9,10 +9,6 @@ import { GLTF } from "three-stdlib";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Icosphere001: THREE.Mesh;
-    Circle023: THREE.Mesh;
-    Circle023_1: THREE.Mesh;
-    Circle023_2: THREE.Mesh;
     Plane122: THREE.Mesh;
     Plane123: THREE.Mesh;
     Plane124: THREE.Mesh;
@@ -24,29 +20,26 @@ type GLTFResult = GLTF & {
     Circle034: THREE.Mesh;
     Plane147: THREE.Mesh;
     Plane147_1: THREE.Mesh;
-    Plane159: THREE.Mesh;
     Plane152: THREE.Mesh;
     Plane152_1: THREE.Mesh;
     Plane152_2: THREE.Mesh;
+    Plane159: THREE.Mesh;
     Plane231: THREE.Mesh;
   };
   materials: {
-    cream_dark_wood: THREE.MeshStandardMaterial;
-    cream_grey: THREE.MeshStandardMaterial;
-    cream_grey_darker: THREE.MeshStandardMaterial;
     cream_dark: THREE.MeshStandardMaterial;
     cream_dark_lighter: THREE.MeshStandardMaterial;
     cream_naranja_intenso: THREE.MeshStandardMaterial;
     cream_red: THREE.MeshStandardMaterial;
-    postips: THREE.MeshStandardMaterial;
     Games_Atari: THREE.MeshStandardMaterial;
     Game_Space: THREE.MeshStandardMaterial;
     Game_Pacman: THREE.MeshStandardMaterial;
+    postips: THREE.MeshStandardMaterial;
     Game_Ports: THREE.MeshStandardMaterial;
   };
 };
 
-export function ProjectsSecction(
+export function ProjectSecction(
   props: JSX.IntrinsicElements["group"]
 ) {
   const { nodes, materials } = useGLTF(
@@ -55,38 +48,7 @@ export function ProjectsSecction(
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Icosphere001.geometry}
-        material={materials.cream_dark_wood}
-        position={[21.47, 0.52, 7.82]}
-        rotation={[0, 0.91, -0.65]}
-        scale={0.64}
-      />
-      <group
-        position={[20.52, 0.01, 5.82]}
-        rotation={[0, 0.62, 0]}
-        scale={0.95}>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle023.geometry}
-          material={materials.cream_grey}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle023_1.geometry}
-          material={materials.cream_grey_darker}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle023_2.geometry}
-          material={materials.cream_dark}
-        />
-      </group>
-      <mesh
+        name='Plane122'
         castShadow
         receiveShadow
         geometry={nodes.Plane122.geometry}
@@ -96,6 +58,7 @@ export function ProjectsSecction(
         scale={[2.2, 2.2, 3.08]}
       />
       <mesh
+        name='Plane123'
         castShadow
         receiveShadow
         geometry={nodes.Plane123.geometry}
@@ -105,6 +68,7 @@ export function ProjectsSecction(
         scale={[2.2, 2.2, 3.08]}
       />
       <mesh
+        name='Plane124'
         castShadow
         receiveShadow
         geometry={nodes.Plane124.geometry}
@@ -114,6 +78,7 @@ export function ProjectsSecction(
         scale={[2.2, 2.2, 3.08]}
       />
       <mesh
+        name='Plane230'
         castShadow
         receiveShadow
         geometry={nodes.Plane230.geometry}
@@ -123,6 +88,7 @@ export function ProjectsSecction(
         scale={[2.2, 2.2, 3.08]}
       />
       <mesh
+        name='Plane141'
         castShadow
         receiveShadow
         geometry={nodes.Plane141.geometry}
@@ -131,6 +97,7 @@ export function ProjectsSecction(
         scale={[1.46, 1.98, 1.46]}
       />
       <mesh
+        name='Plane142'
         castShadow
         receiveShadow
         geometry={nodes.Plane142.geometry}
@@ -139,6 +106,7 @@ export function ProjectsSecction(
         scale={[1.43, 1.98, 1.43]}
       />
       <mesh
+        name='Plane143'
         castShadow
         receiveShadow
         geometry={nodes.Plane143.geometry}
@@ -147,6 +115,7 @@ export function ProjectsSecction(
         scale={[1.43, 1.98, 1.43]}
       />
       <mesh
+        name='Circle033'
         castShadow
         receiveShadow
         geometry={nodes.Circle033.geometry}
@@ -155,6 +124,7 @@ export function ProjectsSecction(
         scale={0.21}
       />
       <mesh
+        name='Circle034'
         castShadow
         receiveShadow
         geometry={nodes.Circle034.geometry}
@@ -163,47 +133,46 @@ export function ProjectsSecction(
         scale={0.21}
       />
       <group
+        name='Plane145'
         position={[31.68, 0.4, 5.8]}
         rotation={[0, 0.22, 0]}
         scale={1.02}>
         <mesh
+          name='Plane147'
           castShadow
           receiveShadow
           geometry={nodes.Plane147.geometry}
           material={materials.cream_red}
         />
         <mesh
+          name='Plane147_1'
           castShadow
           receiveShadow
           geometry={nodes.Plane147_1.geometry}
           material={materials.cream_dark}
         />
       </group>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane159.geometry}
-        material={materials.postips}
-        position={[86.5, 1.72, -6.2]}
-        rotation={[0.14, 0.09, 0.02]}
-      />
       <group
+        name='Plane149'
         position={[30.13, 1.02, 7.65]}
         rotation={[1.34, 0.13, -0.5]}
         scale={1.02}>
         <mesh
+          name='Plane152'
           castShadow
           receiveShadow
           geometry={nodes.Plane152.geometry}
           material={materials.Games_Atari}
         />
         <mesh
+          name='Plane152_1'
           castShadow
           receiveShadow
           geometry={nodes.Plane152_1.geometry}
           material={materials.Game_Space}
         />
         <mesh
+          name='Plane152_2'
           castShadow
           receiveShadow
           geometry={nodes.Plane152_2.geometry}
@@ -211,6 +180,16 @@ export function ProjectsSecction(
         />
       </group>
       <mesh
+        name='Plane159'
+        castShadow
+        receiveShadow
+        geometry={nodes.Plane159.geometry}
+        material={materials.postips}
+        position={[86.5, 1.72, -6.2]}
+        rotation={[0.14, 0.09, 0.02]}
+      />
+      <mesh
+        name='Plane231'
         castShadow
         receiveShadow
         geometry={nodes.Plane231.geometry}
