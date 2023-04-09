@@ -1,3 +1,4 @@
+import React from "react";
 import { Canvas } from "@react-three/fiber";
 import Camera from "./Camera/Camera";
 import Lights from "./Lights/Lights";
@@ -16,7 +17,14 @@ import { YouTubeSecction } from "./Models/YouTubeSecction";
 import { ContactSecction } from "./Models/ContactSecction";
 import { Wall } from "./Models/Wall";
 
+import { Physics, Debug } from "@react-three/cannon";
+import PlaneSecctionPhysics from "./Physics/PlaneSecctionPhysics";
+import HomeSecctionPhysic from "./Physics/HomeSecctionPhysic";
+import Movement from "./Physics/Movement";
+
 export default function Scene() {
+  const [paused, setPaused] = React.useState(false);
+
   return (
     <Canvas
       gl={{ powerPreference: "high-performance" }}
@@ -35,16 +43,30 @@ export default function Scene() {
       {/* 
         Scene models
       */}
-      <DesktopModel />
+      {/* <DesktopModel />
       <HomeSecction />
       <ProjectsSecction />
       <TechsSecction />
       <YouTubeSecction />
       <ContactSecction />
-      <Wall />
+      <Wall /> */}
 
-      {/* Character */}
-      <Character />
+      {/* 
+        Physics Secctions
+      */}
+      <Physics
+        broadphase='SAP'
+        gravity={[0, -9.8, 0]}
+        frictionGravity={[0, 1, 0]}>
+        <Debug color='black' scale={1.01}>
+          {/* Character */}
+          {/* <Movement /> */}
+          <Character />
+          <HomeSecctionPhysic />
+          <PlaneSecctionPhysics />
+        </Debug>
+      </Physics>
+
       <Lights />
     </Canvas>
   );

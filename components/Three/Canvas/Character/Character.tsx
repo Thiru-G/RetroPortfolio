@@ -1,21 +1,19 @@
 import React, { useEffect, useRef } from "react";
+
+import * as THREE from "three";
 import {
   useAnimations,
   useGLTF,
   OrbitControls,
 } from "@react-three/drei";
-import * as THREE from "three";
 import { useInput } from "./useInput";
 import { useFrame, useThree } from "@react-three/fiber";
 import {
-  GetDirecctionOffset,
+  MoveModel,
+  RotateTheModel,
   UpdateCameraTarget,
 } from "./GetDirecctionOfffset";
-
-// Constants for movement
-let WALK_DIRECCTION = new THREE.Vector3();
-let ROTATE_ANGLE = new THREE.Vector3(0, 1, 0);
-let ROTATE_QUATERNION = new THREE.Quaternion();
+import { useSphere } from "@react-three/cannon";
 
 export default function Character() {
   // Model data
@@ -32,11 +30,22 @@ export default function Character() {
   const controlsRef = useRef<
     typeof OrbitControls | undefined
   >() as any;
-  const spotLightRef = useRef<any>();
   const camera = useThree((state) => state.camera);
+
+  // Lights
+  const spotLightRef = useRef<any>();
 
   // Animations
   const currentAnimation = useRef("");
+
+  // Physcis
+  const [spherePlayer, spherePlayerAPI] = useSphere<any>(
+    () => ({
+      args: [1],
+      mass: 1,
+      position: [0, 1, 0],
+    })
+  );
 
   useEffect(() => {
     let action = "";
@@ -58,7 +67,35 @@ export default function Character() {
       toPlay?.reset().fadeIn(0.2).play();
       currentAnimation.current = action;
     }
-    // actions?.Idle?.play();
+
+    // Movement for physics
+    function handleKeyUp() {
+      spherePlayerAPI.velocity.set(0, 0, 0);
+      spherePlayerAPI.angularDamping.set(0);
+      spherePlayerAPI.angularVelocity.set(0, 0, 0);
+      spherePlayerAPI.angularFactor.set(0, 0, 0);
+      spherePlayerAPI.linearDamping.set(0);
+      spherePlayerAPI.linearFactor.set(0, 0, 0);
+    }
+
+    document.addEventListener("keyup", handleKeyUp);
+
+    // For tracker the movement of the player
+    spherePlayerAPI.position.subscribe((v) => {
+      console.log(v);
+      model.scene.position.x = v[0];
+      model.scene.position.z = v[2];
+
+      controlsRef.current.target.x = v[0];
+      controlsRef.current.target.z = v[2];
+
+      camera.position.x = v[0];
+      camera.position.z = v[2] + 20;
+    });
+
+    return () => {
+      document.removeEventListener("keyup", handleKeyUp);
+    };
   }, [foward, backward, left, right, shift, jump]);
 
   useFrame((state, delta) => {
@@ -66,62 +103,67 @@ export default function Character() {
       currentAnimation.current === "Running" ||
       currentAnimation.current === "Walking"
     ) {
-      /* 
-            Calculate the angle between the camera view and
-            the model view, the objetive of this code, is get the 
-            angle to align the model's view and the camera's view
-        */
-      let angleYCameraDirection = Math.atan2(
-        camera.position.x - model.scene.position.x,
-        camera.position.z - model.scene.position.z
-      );
+      // Move the sphere
+      spherePlayerAPI.linearFactor.set(1, 0, 1);
+      spherePlayerAPI.velocity.set(0, 0, 0);
 
-      // offset model
-      let offsetAngle = GetDirecctionOffset(
+      const FORCE =
+        currentAnimation.current === "Running" ? 120 : 50;
+
+      if (foward) {
+        spherePlayerAPI.applyForce(
+          [0, 0, -FORCE],
+          [0, 0, 0]
+        );
+        if (left) {
+          spherePlayerAPI.applyForce(
+            [-FORCE / 2, 0, -FORCE],
+            [0, 0, 0]
+          );
+        }
+        if (right) {
+          spherePlayerAPI.applyForce(
+            [FORCE / 2, 0, -FORCE],
+            [0, 0, 0]
+          );
+        }
+      } else if (backward) {
+        spherePlayerAPI.applyForce(
+          [0, 0, FORCE],
+          [0, 0, 0]
+        );
+
+        if (backward && left) {
+          spherePlayerAPI.applyForce(
+            [-FORCE / 2, 0, FORCE],
+            [0, 0, 0]
+          );
+        }
+        if (backward && right) {
+          spherePlayerAPI.applyForce(
+            [FORCE / 2, 0, FORCE],
+            [0, 0, 0]
+          );
+        }
+      } else if (left) {
+        spherePlayerAPI.applyForce(
+          [-FORCE, 0, 0],
+          [0, 0, 0]
+        );
+      } else if (right) {
+        spherePlayerAPI.applyForce(
+          [FORCE, 0, 0],
+          [0, 0, 0]
+        );
+      }
+
+      RotateTheModel(
+        camera,
+        model.scene,
         foward,
         backward,
         left,
         right
-      );
-
-      //rotate model
-      ROTATE_QUATERNION.setFromAxisAngle(
-        ROTATE_ANGLE,
-        angleYCameraDirection + offsetAngle
-      );
-      model.scene.quaternion.rotateTowards(
-        ROTATE_QUATERNION,
-        0.2
-      );
-
-      // calculate direcction
-      camera.getWorldDirection(WALK_DIRECCTION);
-      WALK_DIRECCTION.y = 0;
-      WALK_DIRECCTION.normalize();
-      WALK_DIRECCTION.applyAxisAngle(
-        ROTATE_ANGLE,
-        offsetAngle
-      );
-
-      // run/walk velocity
-      const VELOCITY =
-        currentAnimation.current === "Running" ? 12 : 5;
-
-      // move model & camera
-      const moveX =
-        (WALK_DIRECCTION.x * VELOCITY * delta) / 2;
-      const moveZ =
-        (WALK_DIRECCTION.z * VELOCITY * delta) / 2;
-      model.scene.position.x -= moveX;
-      model.scene.position.z -= moveZ;
-
-      UpdateCameraTarget(
-        moveX,
-        moveZ,
-        camera,
-        model.scene,
-        controlsRef,
-        spotLightRef
       );
     }
   });
@@ -145,6 +187,15 @@ export default function Character() {
         penumbra={0.8}
         power={7}
       />
+      <mesh position={[0, 2, 0]} ref={spherePlayer}>
+        <sphereGeometry args={[1, 16, 15]} />
+        <meshBasicMaterial
+          color={"0xff00ff"}
+          transparent
+          opacity={0.4}
+        />
+      </mesh>
+
       <primitive object={model.scene} dispose={null} />
     </>
   );
