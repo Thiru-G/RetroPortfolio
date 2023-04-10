@@ -32,8 +32,6 @@ import YouTubeStatic from "./Physics/Statics/YouTubeStatic";
 import { YouTubeDynamics } from "./Physics/Dynamics/YouTubeDynamics";
 
 export default function Scene() {
-  const [paused, setPaused] = React.useState(false);
-
   return (
     <Canvas
       shadows

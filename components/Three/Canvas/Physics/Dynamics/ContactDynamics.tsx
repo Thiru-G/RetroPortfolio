@@ -1,6 +1,7 @@
 import * as THREE from "three";
-import React, { useRef } from "react";
+import React from "react";
 import { useGLTF } from "@react-three/drei";
+import { ThreeEvent } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
 import { CuboidColliderDynamic } from "../Utils/PhyshicsColliders";
 
@@ -24,6 +25,19 @@ export function ContactDynamics(
   const { nodes, materials } = useGLTF(
     "/models/ContactSecctionDynamics.glb"
   ) as GLTFResult;
+
+  const handlePointerOver = (
+    event: ThreeEvent<PointerEvent>
+  ) => {
+    document.body.style.cursor = "pointer";
+  };
+
+  const handlePointerOut = (
+    event: ThreeEvent<PointerEvent>
+  ) => {
+    document.body.style.cursor = "default";
+  };
+
   return (
     <group {...props} dispose={null}>
       <CuboidColliderDynamic
@@ -34,7 +48,17 @@ export function ContactDynamics(
         rotation={[0, 0, 0]}
         mass={1}
         type='Dynamic'>
-        <group name='LinkedIn' scale={0.47}>
+        <group
+          name='LinkedIn'
+          scale={0.47}
+          onPointerOver={(e) => handlePointerOver(e)}
+          onPointerOut={(e) => handlePointerOut(e)}
+          onClick={() =>
+            window.open(
+              "https://www.linkedin.com/in/juanglezf/",
+              "_blank"
+            )
+          }>
           <mesh
             name='Cube020'
             castShadow
@@ -60,7 +84,17 @@ export function ContactDynamics(
         rotation={[0, 0, 0]}
         mass={1}
         type='Dynamic'>
-        <group name='GitHub' scale={0.47}>
+        <group
+          name='GitHub'
+          scale={0.47}
+          onPointerOver={(e) => handlePointerOver(e)}
+          onPointerOut={(e) => handlePointerOut(e)}
+          onClick={() =>
+            window.open(
+              "https://github.com/SirJohn72-script",
+              "_blank"
+            )
+          }>
           <mesh
             name='Cube021'
             castShadow

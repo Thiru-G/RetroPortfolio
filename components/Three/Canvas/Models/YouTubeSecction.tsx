@@ -32,6 +32,8 @@ export function YouTubeSecction(
   const { nodes, materials } = useGLTF(
     "/models/YouTubeSecction.glb"
   ) as GLTFResult;
+  const [hovered, setHover] = React.useState(false);
+
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -75,10 +77,26 @@ export function YouTubeSecction(
         castShadow
         receiveShadow
         geometry={nodes.Button.geometry}
-        material={materials.cream_red}
         position={[73.09, 0.79, 10.75]}
         scale={0.76}
-      />
+        onClick={() => {
+          window.open(
+            "https://www.youtube.com/c/JohnScript72",
+            "_blank"
+          );
+        }}
+        onPointerOver={(event) => {
+          setHover(true);
+          document.body.style.cursor = "pointer";
+        }}
+        onPointerOut={(event) => {
+          setHover(false);
+          document.body.style.cursor = "default";
+        }}>
+        <meshStandardMaterial
+          color={hovered ? "orange" : "red"}
+        />
+      </mesh>
       <mesh
         name='Plane111'
         castShadow
