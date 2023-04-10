@@ -45,7 +45,10 @@ export function CuboidCollider({
   }, [position]);
 
   return (
-    <mesh ref={cuboid} position={position}>
+    <mesh
+      ref={cuboid}
+      position={position}
+      castShadow={false}>
       <boxGeometry args={[args[0], args[1], args[2]]} />
       <meshBasicMaterial
         color={0xffffff}

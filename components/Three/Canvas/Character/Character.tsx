@@ -93,6 +93,7 @@ export default function Character() {
       camera.position.z = v[2] + 20;
 
       spotLightRef.current.position.x = v[0];
+      spotLightRef.current.position.y = 8;
       spotLightRef.current.position.z = v[2];
     });
 
@@ -175,20 +176,22 @@ export default function Character() {
     <>
       <OrbitControls
         ref={controlsRef}
-        // enableRotate={false}
-        // enablePan={false}
-        // maxZoom={5}
-        // minDistance={15}
-        // maxDistance={40}
+        enableRotate={false}
+        enablePan={false}
+        maxZoom={5}
+        minDistance={15}
+        maxDistance={40}
       />
       <spotLight
+        castShadow
         ref={spotLightRef}
         color={"#E3C65E"}
-        position={[0, 12, 0]}
-        angle={(60 * Math.PI) / 180}
+        position={[0, 8, 0]}
+        angle={(70 * Math.PI) / 180}
         target={model.scene}
         penumbra={0.8}
-        power={7}
+        shadow-bias={-0.009}
+        power={9}
       />
       <mesh position={[0, 2, 0]} ref={spherePlayer}>
         <sphereGeometry args={[1, 16, 15]} />

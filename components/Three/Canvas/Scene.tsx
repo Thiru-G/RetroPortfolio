@@ -36,17 +36,10 @@ export default function Scene() {
 
   return (
     <Canvas
+      shadows
       gl={{ powerPreference: "high-performance" }}
       dpr={1}>
       <color attach='background' args={["#1e1e1e"]} />
-      {/* <ContactShadows
-        height={20}
-        width={20}
-        blur={0.2}
-        color={"#1e1e1e"}
-        // position={[45, 0, 0]}
-      />
-      <BakeShadows /> */}
       <Camera />
 
       {/* 

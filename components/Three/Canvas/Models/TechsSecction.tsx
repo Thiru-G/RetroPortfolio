@@ -418,8 +418,6 @@ export function TechsSecction(
       </group>
       <mesh
         name='Plane116'
-        castShadow
-        receiveShadow
         geometry={nodes.Plane116.geometry}
         material={materials.cream_dark}
         position={[54.61, 0.94, 9.19]}
@@ -486,8 +484,6 @@ export function TechsSecction(
       />
       <mesh
         name='Circle047'
-        castShadow
-        receiveShadow
         geometry={nodes.Circle047.geometry}
         material={materials.cream_red}
         position={[56.72, 0.95, 8.19]}
@@ -496,8 +492,6 @@ export function TechsSecction(
       />
       <mesh
         name='Plane117'
-        castShadow
-        receiveShadow
         geometry={nodes.Plane117.geometry}
         material={materials.cream_dark}
         position={[56.06, 0.92, 9.54]}
