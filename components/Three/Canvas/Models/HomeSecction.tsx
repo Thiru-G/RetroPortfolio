@@ -6,6 +6,7 @@ import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
+import { GenerateVideo } from "../Helpers/GenerateVideoTexture";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -581,7 +582,7 @@ export function HomeSecction(
         castShadow
         receiveShadow
         geometry={nodes.PC_Window.geometry}
-        material={nodes.PC_Window.material}
+        material={GenerateVideo("/videos/init.mp4")}
         position={[0, 0, -3.02]}
       />
       <mesh
