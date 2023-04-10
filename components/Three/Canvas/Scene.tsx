@@ -21,8 +21,15 @@ import { Physics, Debug } from "@react-three/cannon";
 import PlaneSecctionPhysics from "./Physics/Utils/PlaneSecctionPhysics";
 import HomeStatics from "./Physics/Statics/HomeStatics";
 import { HomeDynamics } from "./Physics/Dynamics/HomeDynamics";
-import AboutStatics from "./Physics/Statics/AboutStatics";
 import { ProjectDynamics } from "./Physics/Dynamics/ProjectDynamics";
+import TechsStatics from "./Physics/Statics/TechsStatic";
+import GeneralStatics from "./Physics/Statics/GeneralStatics";
+import ProjectsStatics from "./Physics/Statics/ProjectsStatics";
+import { TechsDynamics } from "./Physics/Dynamics/TechsDynamics";
+import ContactStatic from "./Physics/Statics/ContactStatic";
+import { ContactDynamics } from "./Physics/Dynamics/ContactDynamics";
+import YouTubeStatic from "./Physics/Statics/YouTubeStatic";
+import { YouTubeDynamics } from "./Physics/Dynamics/YouTubeDynamics";
 
 export default function Scene() {
   const [paused, setPaused] = React.useState(false);
@@ -47,14 +54,12 @@ export default function Scene() {
       */}
       <HomeSecction />
       <ProjectSecction />
+      <TechsSecction />
 
       <DesktopModel />
       <Wall />
-      {/*
-      <TechsSecction />
-      <YouTubeSecction />
       <ContactSecction />
-      */}
+      <YouTubeSecction />
 
       {/* 
         Physics Secctions
@@ -71,11 +76,18 @@ export default function Scene() {
 
         {/* Statics */}
         <HomeStatics />
-        <AboutStatics />
+        <ProjectsStatics />
+        <TechsStatics />
+        <GeneralStatics />
+        <ContactStatic />
+        <YouTubeStatic />
 
         {/* Dynamics */}
         <HomeDynamics />
         <ProjectDynamics />
+        <TechsDynamics />
+        <ContactDynamics />
+        <YouTubeDynamics />
 
         {/* Basic */}
         <PlaneSecctionPhysics />

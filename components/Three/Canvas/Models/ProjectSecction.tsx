@@ -18,11 +18,6 @@ type GLTFResult = GLTF & {
     Plane143: THREE.Mesh;
     Circle033: THREE.Mesh;
     Circle034: THREE.Mesh;
-    Plane147: THREE.Mesh;
-    Plane147_1: THREE.Mesh;
-    Plane152: THREE.Mesh;
-    Plane152_1: THREE.Mesh;
-    Plane152_2: THREE.Mesh;
     Plane159: THREE.Mesh;
     Plane231: THREE.Mesh;
   };
@@ -30,10 +25,6 @@ type GLTFResult = GLTF & {
     cream_dark: THREE.MeshStandardMaterial;
     cream_dark_lighter: THREE.MeshStandardMaterial;
     cream_naranja_intenso: THREE.MeshStandardMaterial;
-    cream_red: THREE.MeshStandardMaterial;
-    Games_Atari: THREE.MeshStandardMaterial;
-    Game_Space: THREE.MeshStandardMaterial;
-    Game_Pacman: THREE.MeshStandardMaterial;
     postips: THREE.MeshStandardMaterial;
     Game_Ports: THREE.MeshStandardMaterial;
   };
@@ -132,53 +123,6 @@ export function ProjectSecction(
         position={[27.31, 1.15, 7.1]}
         scale={0.21}
       />
-      <group
-        name='Plane145'
-        position={[31.68, 0.4, 5.8]}
-        rotation={[0, 0.22, 0]}
-        scale={1.02}>
-        <mesh
-          name='Plane147'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane147.geometry}
-          material={materials.cream_red}
-        />
-        <mesh
-          name='Plane147_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane147_1.geometry}
-          material={materials.cream_dark}
-        />
-      </group>
-      <group
-        name='Plane149'
-        position={[30.13, 1.02, 7.65]}
-        rotation={[1.34, 0.13, -0.5]}
-        scale={1.02}>
-        <mesh
-          name='Plane152'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane152.geometry}
-          material={materials.Games_Atari}
-        />
-        <mesh
-          name='Plane152_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane152_1.geometry}
-          material={materials.Game_Space}
-        />
-        <mesh
-          name='Plane152_2'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane152_2.geometry}
-          material={materials.Game_Pacman}
-        />
-      </group>
       <mesh
         name='Plane159'
         castShadow

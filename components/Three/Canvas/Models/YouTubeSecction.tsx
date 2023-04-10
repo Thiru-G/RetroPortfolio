@@ -11,7 +11,6 @@ type GLTFResult = GLTF & {
   nodes: {
     Teapot: THREE.Mesh;
     Star: THREE.Mesh;
-    Sponge: THREE.Mesh;
     Suzanne: THREE.Mesh;
     Plane118: THREE.Mesh;
     Button: THREE.Mesh;
@@ -20,7 +19,6 @@ type GLTFResult = GLTF & {
   materials: {
     cream_morado: THREE.MeshStandardMaterial;
     cream_yellow: THREE.MeshStandardMaterial;
-    cream_dark_blue: THREE.MeshStandardMaterial;
     cream_naranja_intenso: THREE.MeshStandardMaterial;
     cream_grey: THREE.MeshStandardMaterial;
     cream_red: THREE.MeshStandardMaterial;
@@ -54,15 +52,6 @@ export function YouTubeSecction(
         rotation={[Math.PI / 2, -0.3, 0]}
       />
       <mesh
-        name='Sponge'
-        castShadow
-        receiveShadow
-        geometry={nodes.Sponge.geometry}
-        material={materials.cream_dark_blue}
-        position={[76.18, 0.99, 9.07]}
-        rotation={[0, 0.38, 0]}
-      />
-      <mesh
         name='Suzanne'
         castShadow
         receiveShadow
@@ -78,7 +67,7 @@ export function YouTubeSecction(
         receiveShadow
         geometry={nodes.Plane118.geometry}
         material={materials.cream_grey}
-        position={[72.22, -0.03, 10]}
+        position={[73.16, 0.57, 10.76]}
         scale={1.29}
       />
       <mesh

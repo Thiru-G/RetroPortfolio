@@ -17,6 +17,7 @@ export default function HomeStatics() {
         position={[0.064, 1.496, -7.89]}
         mass={0}
         type='Static'
+        rotation={[0, 0, 0]}
       />
       <CuboidCollider
         id='teclado'
@@ -25,6 +26,7 @@ export default function HomeStatics() {
         position={[0.180357, 0.768603, 4.88279]}
         mass={0}
         type='Static'
+        rotation={[0, 0, 0]}
       />
       <CylinderCollider
         id='tarro'

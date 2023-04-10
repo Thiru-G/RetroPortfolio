@@ -14,6 +14,7 @@ interface ColliderProps {
   scale: [number, number, number];
   position: [number, number, number];
   mass: number;
+  rotation: [number, number, number];
   type: "Dynamic" | "Static";
 }
 
@@ -22,6 +23,7 @@ export function CuboidCollider({
   args,
   scale,
   position,
+  rotation,
   mass,
   type,
 }: ColliderProps) {
@@ -29,6 +31,7 @@ export function CuboidCollider({
     type: type,
     args: [args[0], args[1], args[2]],
     position: [...position],
+    rotation: [...rotation],
     mass: mass,
     scale: [...scale],
   }));
@@ -53,6 +56,7 @@ export function CuboidCollider({
   );
 }
 
+// cilinder
 interface ColliderPropsDynamic {
   id: string;
   args: Array<number>;
@@ -93,9 +97,45 @@ export function CylinderCollider({
   );
 }
 
+export function CuboidColliderDynamic({
+  id,
+  args,
+  scale,
+  position,
+  rotation,
+  mass,
+  type,
+  children,
+}: ColliderPropsDynamic) {
+  const [cuboid, cuboidAPI] = useBox<any>(() => ({
+    type: type,
+    args: [args[0], args[1], args[2]],
+    position: [...position],
+    rotation: [...rotation],
+    mass: mass,
+    scale: [...scale],
+  }));
+
+  React.useEffect(() => {
+    cuboidAPI.position.set(
+      position[0],
+      position[1],
+      position[2]
+    );
+  }, [position]);
+
+  return (
+    <group ref={cuboid} position={position}>
+      {children}
+    </group>
+  );
+}
+
+// Ico sphere
 interface IcosphereColliderProps {
   id: string;
   args: number;
+  detail: number;
   scale: [number, number, number];
   position: [number, number, number];
   rotation: [number, number, number];
@@ -106,6 +146,7 @@ interface IcosphereColliderProps {
 export function IcosphereCollider({
   id,
   args,
+  detail,
   scale,
   position,
   rotation,
@@ -114,7 +155,7 @@ export function IcosphereCollider({
   children,
 }: IcosphereColliderProps) {
   const geometry = React.useMemo(
-    () => new IcosahedronGeometry(args, 0),
+    () => new IcosahedronGeometry(args, detail),
     []
   );
   const argss = React.useMemo(

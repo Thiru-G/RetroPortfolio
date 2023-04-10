@@ -25,7 +25,6 @@ type GLTFResult = GLTF & {
     Cube010_2: THREE.Mesh;
     Cube010_3: THREE.Mesh;
     Cube010_4: THREE.Mesh;
-    Text002: THREE.Mesh;
     Plane138: THREE.Mesh;
     Cube004: THREE.Mesh;
     Cube004_1: THREE.Mesh;
@@ -48,25 +47,6 @@ type GLTFResult = GLTF & {
     Circle021_1: THREE.Mesh;
     Vert005_1: THREE.Mesh;
     Vert005_2: THREE.Mesh;
-    Circle038_1: THREE.Mesh;
-    Circle038_2: THREE.Mesh;
-    Circle038_3: THREE.Mesh;
-    Circle041_1: THREE.Mesh;
-    Circle041_2: THREE.Mesh;
-    Circle041_3: THREE.Mesh;
-    Circle044: THREE.Mesh;
-    Circle044_1: THREE.Mesh;
-    Circle044_2: THREE.Mesh;
-    Circle046: THREE.Mesh;
-    Circle046_1: THREE.Mesh;
-    Circle046_2: THREE.Mesh;
-    Sphere007: THREE.Mesh;
-    Sphere007_1: THREE.Mesh;
-    Sphere007_2: THREE.Mesh;
-    Plane199: THREE.Mesh;
-    Plane199_1: THREE.Mesh;
-    Plane200: THREE.Mesh;
-    Plane200_1: THREE.Mesh;
     Plane116: THREE.Mesh;
     Plane107: THREE.Mesh;
     Plane107_1: THREE.Mesh;
@@ -90,8 +70,6 @@ type GLTFResult = GLTF & {
     cream_rosa_fuerte: THREE.MeshStandardMaterial;
     cream_yellow_light: THREE.MeshStandardMaterial;
     cream_red: THREE.MeshStandardMaterial;
-    RedLight: THREE.MeshStandardMaterial;
-    cream_grey_metallic: THREE.MeshStandardMaterial;
   };
 };
 
@@ -241,16 +219,6 @@ export function TechsSecction(
           material={materials.cream_verde_azulado_oscuro}
         />
       </group>
-      <mesh
-        name='Text002'
-        castShadow
-        receiveShadow
-        geometry={nodes.Text002.geometry}
-        material={nodes.Text002.material}
-        position={[44.91, 1.91, -7.67]}
-        rotation={[-Math.PI / 2, 0, 1.12]}
-        scale={-3.29}
-      />
       <mesh
         name='Plane138'
         castShadow
@@ -446,177 +414,6 @@ export function TechsSecction(
           receiveShadow
           geometry={nodes.Vert005_2.geometry}
           material={materials.cream_yellow}
-        />
-      </group>
-      <group
-        name='Circle029'
-        position={[41.21, 1.46, 5.95]}
-        rotation={[0, 0.59, 0]}>
-        <mesh
-          name='Circle038_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle038_1.geometry}
-          material={materials.cream_verde_azulado_oscuro}
-        />
-        <mesh
-          name='Circle038_2'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle038_2.geometry}
-          material={materials.cream_yellow_light}
-        />
-        <mesh
-          name='Circle038_3'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle038_3.geometry}
-          material={materials.cream_dark_blue}
-        />
-      </group>
-      <group
-        name='Circle036'
-        position={[43.1, 1.46, 4.4]}
-        rotation={[0, 0.25, 0]}>
-        <mesh
-          name='Circle041_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle041_1.geometry}
-          material={materials.cream_rosa_fuerte}
-        />
-        <mesh
-          name='Circle041_2'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle041_2.geometry}
-          material={materials.cream_yellow_light}
-        />
-        <mesh
-          name='Circle041_3'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle041_3.geometry}
-          material={materials.cream_dark_blue}
-        />
-      </group>
-      <group
-        name='Circle041'
-        position={[45.66, 1.46, 4.33]}
-        rotation={[0, -0.38, 0]}>
-        <mesh
-          name='Circle044'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle044.geometry}
-          material={materials.cream_naranja_intenso}
-        />
-        <mesh
-          name='Circle044_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle044_1.geometry}
-          material={materials.cream_yellow_light}
-        />
-        <mesh
-          name='Circle044_2'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle044_2.geometry}
-          material={materials.cream_dark_blue}
-        />
-      </group>
-      <group
-        name='Circle042'
-        position={[47.5, 1.46, 6.02]}
-        rotation={[0, -0.51, 0]}>
-        <mesh
-          name='Circle046'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle046.geometry}
-          material={materials.cream_red}
-        />
-        <mesh
-          name='Circle046_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle046_1.geometry}
-          material={materials.cream_yellow_light}
-        />
-        <mesh
-          name='Circle046_2'
-          castShadow
-          receiveShadow
-          geometry={nodes.Circle046_2.geometry}
-          material={materials.cream_dark_blue}
-        />
-      </group>
-      <group
-        name='Sphere006'
-        position={[44.28, 1.09, 8.25]}
-        rotation={[-Math.PI, 0.47, 0]}
-        scale={[1.4, 1, 1.4]}>
-        <mesh
-          name='Sphere007'
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere007.geometry}
-          material={materials.cream_yellow}
-        />
-        <mesh
-          name='Sphere007_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere007_1.geometry}
-          material={materials.cream_dark}
-        />
-        <mesh
-          name='Sphere007_2'
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere007_2.geometry}
-          material={materials.RedLight}
-        />
-      </group>
-      <group
-        name='Plane112'
-        position={[43.72, 2.25, 7.8]}
-        rotation={[-3.09, 0.31, -1.87]}
-        scale={0.22}>
-        <mesh
-          name='Plane199'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane199.geometry}
-          material={materials.cream_dark_wood}
-        />
-        <mesh
-          name='Plane199_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane199_1.geometry}
-          material={materials.cream_grey_metallic}
-        />
-      </group>
-      <group
-        name='Plane113'
-        position={[48.15, 0.69, 6.98]}
-        rotation={[Math.PI / 2, 0, -1.13]}
-        scale={0.22}>
-        <mesh
-          name='Plane200'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane200.geometry}
-          material={materials.cream_dark_wood}
-        />
-        <mesh
-          name='Plane200_1'
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane200_1.geometry}
-          material={materials.cream_grey_metallic}
         />
       </group>
       <mesh

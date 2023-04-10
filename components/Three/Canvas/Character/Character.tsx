@@ -90,8 +90,10 @@ export default function Character() {
       controlsRef.current.target.z = v[2];
 
       camera.position.x = v[0];
-
       camera.position.z = v[2] + 20;
+
+      spotLightRef.current.position.x = v[0];
+      spotLightRef.current.position.z = v[2];
     });
 
     return () => {
