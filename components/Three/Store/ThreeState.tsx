@@ -1,16 +1,16 @@
 import { create } from "zustand";
 
-interface LoginStageType {
-  isLogged: boolean;
-  setIsLogged: (value: boolean) => void;
+interface usePlayerSoundType {
+  isIdle: boolean;
+  setIsIdle: (value: boolean) => void;
 }
 
-export const useLoginStage = create<LoginStageType>(
+export const usePlayerSound = create<usePlayerSoundType>(
   (set) => ({
-    isLogged: false,
-    setIsLogged: (value: boolean) =>
+    isIdle: true,
+    setIsIdle: (value: boolean) =>
       set((state) => ({
-        isLogged: value,
+        isIdle: value,
       })),
   })
 );

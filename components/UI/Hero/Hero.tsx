@@ -44,12 +44,8 @@ export default function Hero() {
               GitHub
             </PrimaryButton>
             <PrimaryButton
-              event={() =>
-                router.push(
-                  "https://www.youtube.com/c/JohnScript72"
-                )
-              }>
-              YouTube
+              event={() => router.push("/version3d")}>
+              3D Version
             </PrimaryButton>
           </div>
         </div>

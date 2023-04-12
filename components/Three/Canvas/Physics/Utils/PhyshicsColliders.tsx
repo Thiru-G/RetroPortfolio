@@ -91,7 +91,7 @@ export function CylinderCollider({
   }));
 
   return (
-    <group ref={cylinder} position={position}>
+    <group name={"ciln"} ref={cylinder} position={position}>
       {/* <cylinderGeometry
         args={[args[0], args[1], args[2], args[3]]}
       /> */}

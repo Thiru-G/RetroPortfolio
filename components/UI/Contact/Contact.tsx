@@ -59,7 +59,7 @@ export default function Contact() {
       icon={<GiCoffeeCup />}>
       <>
         <div id='Console_Secction'>
-          <HeaderLine>Trabajemos juntos</HeaderLine>
+          <HeaderLine>Let's work together</HeaderLine>
         </div>
         <div
           className={clsx(

@@ -15,6 +15,9 @@ import {
 } from "./GetDirecctionOfffset";
 import { useSphere } from "@react-three/cannon";
 
+// Sound
+import { usePlayerSound } from "../../Store/ThreeState";
+
 export default function Character() {
   // Model data
   const model = useGLTF("./models/RobotExpressive.glb");
@@ -22,6 +25,11 @@ export default function Character() {
   const { actions } = useAnimations(
     model.animations,
     model.scene
+  );
+
+  // global state
+  const { isIdle, setIsIdle } = usePlayerSound(
+    (state) => state
   );
 
   // Model movement
@@ -44,6 +52,13 @@ export default function Character() {
       args: [1],
       mass: 1,
       position: [0, 1, 0],
+      onCollide(e) {
+        // if (
+        //   playerSound.currentTime === playerSound.duration
+        // ) {
+        //   playerSound.play();
+        // }
+      },
     })
   );
 
@@ -107,6 +122,8 @@ export default function Character() {
       currentAnimation.current === "Running" ||
       currentAnimation.current === "Walking"
     ) {
+      setIsIdle(false);
+
       // Move the sphere
       spherePlayerAPI.linearFactor.set(1, 0, 1);
       spherePlayerAPI.velocity.set(0, 0, 0);
@@ -169,6 +186,8 @@ export default function Character() {
         left,
         right
       );
+    } else {
+      setIsIdle(true);
     }
   });
 
@@ -193,6 +212,7 @@ export default function Character() {
         shadow-bias={-0.009}
         power={9}
       />
+
       <mesh position={[0, 2, 0]} ref={spherePlayer}>
         <sphereGeometry args={[1, 16, 15]} />
         <meshBasicMaterial

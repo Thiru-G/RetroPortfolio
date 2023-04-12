@@ -52,7 +52,7 @@ export default function About() {
   };
 
   function openCV() {
-    const fileUrl = "/cv/CV-English.pdf";
+    const fileUrl = "/cv/Resume.pdf";
     window.open(fileUrl);
   }
 

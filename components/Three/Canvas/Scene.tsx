@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import Camera from "./Camera/Camera";
 import Lights from "./Lights/Lights";
@@ -30,6 +30,7 @@ import ContactStatic from "./Physics/Statics/ContactStatic";
 import { ContactDynamics } from "./Physics/Dynamics/ContactDynamics";
 import YouTubeStatic from "./Physics/Statics/YouTubeStatic";
 import { YouTubeDynamics } from "./Physics/Dynamics/YouTubeDynamics";
+import { PlayerSound } from "./Sounds/PlayerSound";
 
 export default function Scene() {
   return (
@@ -39,6 +40,9 @@ export default function Scene() {
       dpr={1}>
       <color attach='background' args={["#1e1e1e"]} />
       <Camera />
+
+      {/* Sounds */}
+      <PlayerSound />
 
       {/* 
         Scene models
