@@ -23,8 +23,10 @@ type GLTFResult = GLTF & {
     Plane008: THREE.Mesh;
     Plane005_1: THREE.Mesh;
     Plane005_2: THREE.Mesh;
-    Plane010: THREE.Mesh;
-    Plane011: THREE.Mesh;
+    Plane006_1: THREE.Mesh;
+    Plane006_2: THREE.Mesh;
+    Plane007_1: THREE.Mesh;
+    Plane007_2: THREE.Mesh;
     Plane012: THREE.Mesh;
     Plane013: THREE.Mesh;
     Plane069: THREE.Mesh;
@@ -75,9 +77,9 @@ type GLTFResult = GLTF & {
   };
   materials: {
     cream_dark: THREE.MeshStandardMaterial;
+    cream_naranja_intenso: THREE.MeshStandardMaterial;
     cream_yellow_light: THREE.MeshStandardMaterial;
     cream_grey: THREE.MeshStandardMaterial;
-    cream_naranja_intenso: THREE.MeshStandardMaterial;
     cream_rosa_fuerte: THREE.MeshStandardMaterial;
     cream_verde_azulado_oscuro: THREE.MeshStandardMaterial;
     cream_grey_metallic: THREE.MeshStandardMaterial;
@@ -126,7 +128,7 @@ export function HomeSecction(
         castShadow
         receiveShadow
         geometry={nodes.Plane018.geometry}
-        material={materials.cream_dark}
+        material={materials.cream_naranja_intenso}
         position={[0, 0, -3.02]}
       />
       <mesh
@@ -201,22 +203,38 @@ export function HomeSecction(
           material={materials.cream_dark}
         />
       </group>
-      <mesh
-        name='Plane010'
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane010.geometry}
-        material={materials.cream_dark}
-        position={[0, 0, -3.02]}
-      />
-      <mesh
-        name='Plane011'
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane011.geometry}
-        material={materials.cream_dark}
-        position={[0, 0, -3.02]}
-      />
+      <group name='Plane010' position={[0, 0, -3.02]}>
+        <mesh
+          name='Plane006_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane006_1.geometry}
+          material={materials.cream_dark}
+        />
+        <mesh
+          name='Plane006_2'
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane006_2.geometry}
+          material={materials.cream_naranja_intenso}
+        />
+      </group>
+      <group name='Plane011' position={[0, 0, -3.02]}>
+        <mesh
+          name='Plane007_1'
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane007_1.geometry}
+          material={materials.cream_dark}
+        />
+        <mesh
+          name='Plane007_2'
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane007_2.geometry}
+          material={materials.cream_naranja_intenso}
+        />
+      </group>
       <mesh
         name='Plane012'
         castShadow
@@ -582,7 +600,9 @@ export function HomeSecction(
         castShadow
         receiveShadow
         geometry={nodes.PC_Window.geometry}
-        material={GenerateVideo("/videos/init.mp4")}
+        material={GenerateVideo(
+          "./videos/init_compressed.mp4"
+        )}
         position={[0, 0, -3.02]}
       />
       <mesh
