@@ -35,6 +35,7 @@ import { PlayerSound } from "./Sounds/PlayerSound";
 export default function Scene() {
   return (
     <Canvas
+      frameloop='demand'
       shadows
       gl={{ powerPreference: "high-performance" }}
       dpr={1}>
