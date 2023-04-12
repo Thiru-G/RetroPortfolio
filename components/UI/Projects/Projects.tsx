@@ -37,9 +37,7 @@ export default function Projects() {
         "TypeScript",
       ],
       linkTo: () =>
-        router.push(
-          "https://github.com/SirJohn72-script/noche_estrellas_web"
-        ),
+        router.push("https://noche-estrellas.vercel.app/"),
     },
     {
       id: 3,
