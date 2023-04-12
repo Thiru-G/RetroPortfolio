@@ -600,9 +600,7 @@ export function HomeSecction(
         castShadow
         receiveShadow
         geometry={nodes.PC_Window.geometry}
-        material={GenerateVideo(
-          "./videos/init_compressed.mp4"
-        )}
+        material={GenerateVideo("./videos/doom.mp4")}
         position={[0, 0, -3.02]}
       />
       <mesh
