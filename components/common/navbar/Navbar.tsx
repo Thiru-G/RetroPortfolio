@@ -83,7 +83,7 @@ export default function Navbar() {
                     : null
                 }
                 className={clsx(
-                  "text-[18px] font-main text-grey-500 uppercase font-400",
+                  "text-[14px] font-main text-grey-500 uppercase font-400",
                   "hover:text-white-1000 hover:underline"
                 )}>
                 {item.label}

@@ -54,7 +54,7 @@ module.exports = {
 
     extend: {
       backgroundImage: {
-        hero_bg: "url('/bg/bg-vivid_8.jpg')",
+        hero_bg: "url('/bg/bg_1.jpg')",
         dark_glass:
           "linear-gradient(170.26deg, #303030 0%, rgba(48, 48, 48, 0) 100%)",
       },
