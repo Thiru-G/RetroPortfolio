@@ -3,11 +3,20 @@ import dynamic from "next/dynamic";
 import Loader from "../Canvas/Loader/Loader";
 import { useLoaderScene } from "../Store/ThreeState";
 import { PlayerSound } from "../Canvas/Sounds/PlayerSound";
+import clsx from "clsx";
+import LoaderRobot from "../Canvas/Loader/LoaderRobot";
 
 const SceneDynamic = dynamic(
   () => import("../Canvas/Scene"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <div
+        className={clsx(
+          "bg-grey-1000 w-full h-screen flex justify-center items-center"
+        )}>
+        <LoaderRobot />
+      </div>
+    ),
     ssr: false,
   }
 );

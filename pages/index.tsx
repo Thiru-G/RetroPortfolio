@@ -5,8 +5,18 @@ import About from "@/components/UI/About/About";
 import Experience from "@/components/UI/Stack/Experience";
 import Projects from "@/components/UI/Projects/Projects";
 import Contact from "@/components/UI/Contact/Contact";
+import { useLoaderScene } from "@/components/Three/Store/ThreeState";
 
 export default function Home() {
+  const { setMusicLoaded, setSceneLoaded, setHideLoader } =
+    useLoaderScene((state) => state);
+
+  React.useEffect(() => {
+    setMusicLoaded(false);
+    setMusicLoaded(false);
+    setHideLoader(false);
+  }, []);
+
   return (
     <>
       <Layout>

@@ -15,18 +15,25 @@ export default function Loader() {
     setPlayMusic,
     hideLoader,
   } = useLoaderScene((state) => state);
+  const loaderContainer =
+    React.useRef<HTMLDivElement>(null);
 
   if (hideLoader) {
     const loader = document.getElementById("three-loader");
-    loader?.classList.add("fade-out-animation-loader");
+    loaderContainer.current?.classList.add(
+      "fade-out-animation-loader"
+    );
     setTimeout(() => {
-      loader!.style.display = "none";
+      if (loaderContainer.current) {
+        loaderContainer.current.style.display = "none";
+      }
     }, 1000);
   }
 
   return (
     <div
       id='three-loader'
+      ref={loaderContainer}
       className={clsx(
         "fixed top-0 left-0",
         "w-[100%] h-[100vh] bg-grey-1000 z-50",

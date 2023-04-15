@@ -32,8 +32,10 @@ export default function Scene() {
     (state) => state
   );
 
-  React.useEffect(() => {
-    setSceneLoaded(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setSceneLoaded(true);
+    }, 3000);
   }, []);
 
   return (
