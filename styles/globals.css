@@ -48,4 +48,34 @@
   ::-webkit-scrollbar {
     width: 0;
   }
+
+  /* animations for loader */
+  .animate-spin-robot {
+    animation: spin 3s linear infinite;
+    -webkit-animation: spin 3s linear infinite;
+  }
+
+  .fade-out-animation-loader {
+    animation: fadeOut 1s linear;
+    -webkit-animation: fadeOut 1s linear;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }

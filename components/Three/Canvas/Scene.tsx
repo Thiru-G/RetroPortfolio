@@ -3,11 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import Camera from "./Camera/Camera";
 import Lights from "./Lights/Lights";
 import Character from "./Character/Character";
-import * as THREE from "three";
-import {
-  ContactShadows,
-  BakeShadows,
-} from "@react-three/drei";
 
 import { DesktopModel } from "./Models/Desktop";
 import { HomeSecction } from "./Models/HomeSecction";
@@ -30,66 +25,74 @@ import ContactStatic from "./Physics/Statics/ContactStatic";
 import { ContactDynamics } from "./Physics/Dynamics/ContactDynamics";
 import YouTubeStatic from "./Physics/Statics/YouTubeStatic";
 import { YouTubeDynamics } from "./Physics/Dynamics/YouTubeDynamics";
-import { PlayerSound } from "./Sounds/PlayerSound";
+import { useLoaderScene } from "../Store/ThreeState";
 
 export default function Scene() {
+  const { setSceneLoaded } = useLoaderScene(
+    (state) => state
+  );
+
+  React.useEffect(() => {
+    setSceneLoaded(true);
+  }, []);
+
   return (
-    <Canvas
-      frameloop='demand'
-      shadows
-      gl={{ powerPreference: "high-performance" }}
-      dpr={1}>
-      <color attach='background' args={["#1e1e1e"]} />
-      <Camera />
+    <>
+      <Canvas
+        frameloop='demand'
+        shadows
+        gl={{ powerPreference: "high-performance" }}
+        dpr={1}>
+        <color attach='background' args={["#1e1e1e"]} />
+        <Camera />
 
-      {/* Sounds */}
-      <PlayerSound />
-
-      {/* 
+        {/* 
         Scene models
       */}
-      <HomeSecction />
-      <ProjectSecction />
-      <TechsSecction />
+        <HomeSecction />
+        <ProjectSecction />
+        <TechsSecction />
 
-      <DesktopModel />
-      <Wall />
-      <ContactSecction />
-      <YouTubeSecction />
+        <DesktopModel />
+        <Wall />
+        <ContactSecction />
+        <YouTubeSecction />
 
-      {/* 
+        {/* 
         Physics Secctions
       */}
-      <Physics
-        broadphase='SAP'
-        gravity={[0, -9.8, 0]}
-        frictionGravity={[0, 1, 0]}
-        defaultContactMaterial={{ restitution: 0.3 }}>
-        {/* <Debug color='black' scale={1.01}>
+        <Physics
+          broadphase='SAP'
+          gravity={[0, -9.8, 0]}
+          frictionGravity={[0, 1, 0]}
+          defaultContactMaterial={{ restitution: 0.3 }}>
+          {/* <Debug color='black' scale={1.01}>
         </Debug> */}
-        {/* Character */}
-        <Character />
+          {/* Character */}
+          <Character />
 
-        {/* Statics */}
-        <HomeStatics />
-        <ProjectsStatics />
-        <TechsStatics />
-        <GeneralStatics />
-        <ContactStatic />
-        <YouTubeStatic />
+          {/* Statics */}
+          <HomeStatics />
+          <ProjectsStatics />
+          <TechsStatics />
+          <GeneralStatics />
+          <ContactStatic />
+          <YouTubeStatic />
 
-        {/* Dynamics */}
-        <HomeDynamics />
-        <ProjectDynamics />
-        <TechsDynamics />
-        <ContactDynamics />
-        <YouTubeDynamics />
+          {/* Dynamics */}
+          <HomeDynamics />
+          <ProjectDynamics />
+          <TechsDynamics />
+          <ContactDynamics />
+          <YouTubeDynamics />
 
-        {/* Basic */}
-        <PlaneSecctionPhysics />
-      </Physics>
+          {/* Basic */}
+          <PlaneSecctionPhysics />
+        </Physics>
 
-      <Lights />
-    </Canvas>
+        <Lights />
+      </Canvas>
+      {/* <PlayerSound /> */}
+    </>
   );
 }

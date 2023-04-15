@@ -14,3 +14,37 @@ export const usePlayerSound = create<usePlayerSoundType>(
       })),
   })
 );
+
+interface useLoaderSceneType {
+  isSceneLoaded: boolean;
+  isMusicLoaded: boolean;
+  hideLoader: boolean;
+  playMusic: boolean;
+  setMusicLoaded: (value: boolean) => void;
+  setSceneLoaded: (value: boolean) => void;
+  setHideLoader: (value: boolean) => void;
+  setPlayMusic: (value: boolean) => void;
+}
+
+export const useLoaderScene = create<useLoaderSceneType>(
+  (set) => ({
+    isMusicLoaded: false,
+    isSceneLoaded: false,
+    hideLoader: false,
+    playMusic: false,
+    setMusicLoaded: (value: boolean) =>
+      set((state) => ({
+        isMusicLoaded: value,
+      })),
+    setSceneLoaded: (value: boolean) =>
+      set((state) => ({
+        isSceneLoaded: value,
+      })),
+    setHideLoader: (value: boolean) =>
+      set((state) => ({
+        hideLoader: value,
+      })),
+    setPlayMusic: (value: boolean) =>
+      set((state) => ({ playMusic: true })),
+  })
+);
