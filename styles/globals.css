@@ -21,13 +21,18 @@
       rgba(48, 48, 48, 1) 20%,
       rgba(48, 48, 48, 0) 100%
     ); */
-    background: rgba(48, 48, 48, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     padding: 30px;
     padding-top: 70px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background: linear-gradient(
+      170.26deg,
+      #303030 0%,
+      rgba(48, 48, 48, 0) 100%
+    );
+    filter: drop-shadow(0px 12px 35px rgba(0, 0, 0, 0.25));
+    backdrop-filter: blur(20px);
   }
 
   .button_primery_console:hover p {
