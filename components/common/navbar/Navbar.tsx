@@ -44,12 +44,13 @@ export default function Navbar() {
     <div
       className={clsx(
         " bg-grey-900 bg-opacity-60 absolute z-50",
-        "w-full h-[60px] ml-[1px] mt-[1px] mr-[1px] px-[30px]",
+        "w-full h-[60px] px-[30px]",
         "flex justify-between items-center border-b-[1px] border-grey-300"
       )}>
       <div
         className={clsx(
-          "w-full max-w-[1300px] m-auto flex justify-between items-center"
+          "w-full max-w-[1300px] m-auto flex justify-between items-center",
+          "border-[1px] border-white-1000"
         )}>
         <div
           className={clsx(
@@ -73,7 +74,7 @@ export default function Navbar() {
             } transition-[left] duration-300 ease-in`
           )}>
           {Links.map((item, index) => (
-            <li key={index}>
+            <li key={index} className='text-center'>
               <LinkRS
                 to={item.to}
                 smooth={true}
@@ -97,11 +98,7 @@ export default function Navbar() {
           className={clsx(
             "lg:hidden",
             "text-32p text-grey-300 z-50",
-            `${
-              showMobileMenu
-                ? "fixed right-[calc(32px)]"
-                : "relative right-[calc(-11px)]"
-            }`,
+            "absolute right-[26px]",
             "hover:text-white-1000"
           )}
           onClick={() =>

@@ -22,7 +22,7 @@ export default function BodyLine({
         <MdKeyboardArrowRight />
       </div>
       <div
-        className={clsx("-ml-2 text-white-1000 flex mt-1")}>
+        className={clsx("ml-3 text-white-1000 flex mt-1")}>
         <BodyText
           color={"text-white-1000"}
           uppercase={false}
