@@ -6,6 +6,7 @@ import Experience from "@/components/UI/Stack/Experience";
 import Projects from "@/components/UI/Projects/Projects";
 import Contact from "@/components/UI/Contact/Contact";
 import { useLoaderScene } from "@/components/Three/Store/ThreeState";
+import LineSeparator from "@/components/common/separator/LineSeparator";
 
 export default function Home() {
   const { setMusicLoaded, setSceneLoaded, setHideLoader } =
@@ -15,6 +16,7 @@ export default function Home() {
     setMusicLoaded(false);
     setMusicLoaded(false);
     setHideLoader(false);
+    console.log("");
   }, []);
 
   return (
@@ -22,9 +24,13 @@ export default function Home() {
       <Layout>
         <>
           <Hero />
+          <LineSeparator />
           <Projects />
+          <LineSeparator />
           <Experience />
+          <LineSeparator />
           <About />
+          <LineSeparator />
           <Contact />
         </>
       </Layout>

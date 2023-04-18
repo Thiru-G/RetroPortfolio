@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import GitConsole from "../git/GitConsole";
 import CPUConsole from "../cpu/CPUConsole";
+import ConnectionStatus from "../Internet/ConnectionStatus";
 
 interface HeaderConsoleProps {
   branch: string;
@@ -18,7 +19,8 @@ export default function HeaderConsole({
       )}>
       <GitConsole branch={branch} icon={icon} />
 
-      <CPUConsole />
+      {/* <CPUConsole /> */}
+      <ConnectionStatus />
     </div>
   );
 }

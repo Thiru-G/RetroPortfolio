@@ -43,13 +43,13 @@ export default function Navbar() {
   return (
     <div
       className={clsx(
-        " bg-grey-900 bg-opacity-60 absolute z-50 rounded-tr-[30px] rounded-tl-[30px]",
-        "w-[calc(100%-2px)] h-[60px] ml-[1px] mt-[1px] mr-[1px] px-[30px]",
+        " bg-grey-900 bg-opacity-60 absolute z-50",
+        "w-full h-[60px] ml-[1px] mt-[1px] mr-[1px] px-[30px]",
         "flex justify-between items-center border-b-[1px] border-grey-300"
       )}>
       <div
         className={clsx(
-          "w-full flex justify-between items-center"
+          "w-full max-w-[1300px] m-auto flex justify-between items-center"
         )}>
         <div
           className={clsx(
@@ -83,7 +83,7 @@ export default function Navbar() {
                     : null
                 }
                 className={clsx(
-                  "text-[14px] font-main text-grey-500 uppercase font-400",
+                  "text-[14px] font-main text-grey-500 uppercase font-400 cursor-pointer",
                   "hover:text-white-1000 hover:underline"
                 )}>
                 {item.label}

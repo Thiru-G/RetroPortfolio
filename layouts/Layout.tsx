@@ -10,15 +10,19 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div
       className={clsx(
-        "w-full bg-hero_bg bg-center bg-cover py-9 px-3",
+        "w-full bg-hero_bg bg-center bg-cover",
         "scroll-smooth"
       )}>
-      <div
-        className={clsx(
-          "w-full max-w-[1300px] mx-auto rounded-2xl relative"
-        )}>
+      <div className={clsx("w-full mx-auto relative")}>
         <Navbar />
-        <div className='dark_glass'>{children}</div>
+        <div className={clsx("dark_glass", "w-full")}>
+          <div
+            className={clsx(
+              "w-full max-w-[1300px] m-auto"
+            )}>
+            {children}
+          </div>
+        </div>
       </div>
     </div>
   );
