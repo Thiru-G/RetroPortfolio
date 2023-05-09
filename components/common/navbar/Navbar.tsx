@@ -49,8 +49,8 @@ export default function Navbar() {
       )}>
       <div
         className={clsx(
-          "w-full max-w-[1300px] m-auto flex justify-between items-center",
-          "border-[1px] border-white-1000"
+          "w-full max-w-[1300px] m-auto flex justify-between items-center"
+          // "border-[1px] border-white-1000"
         )}>
         <div
           className={clsx(

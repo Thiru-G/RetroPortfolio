@@ -4,15 +4,17 @@ import ButtonArrowRight from "../icons/ButtonArrowRight";
 
 interface PrimaryButtonProps {
   children: string;
-  event: Function
+  event: Function;
 }
 
 export default function PrimaryButton({
   children,
-  event
+  event,
 }: PrimaryButtonProps) {
   return (
-    <button className='flex button_primery_console' onClick={() => event()}>
+    <button
+      className='flex button_primery_console'
+      onClick={() => event()}>
       <ButtonArrowLeft />
       <p
         className={clsx(

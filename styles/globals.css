@@ -8,13 +8,6 @@
 @tailwind utilities;
 
 @layer components {
-  * {
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
   .dark_glass {
     /* background: linear-gradient(
       170.26deg,
@@ -35,8 +28,16 @@
     backdrop-filter: blur(20px);
   }
 
+  .button_primery_console p {
+    background-color: theme("colors.yellow-700");
+  }
+
+  .button_primery_console svg path {
+    fill: theme("colors.yellow-700");
+  }
+
   .button_primery_console:hover p {
-    background: theme("colors.yellow-900");
+    background-color: theme("colors.yellow-900");
     transition: 0.3s background ease;
     -webkit-transition: 0.3s background ease;
     -moz-transition: 0.3s background ease;
