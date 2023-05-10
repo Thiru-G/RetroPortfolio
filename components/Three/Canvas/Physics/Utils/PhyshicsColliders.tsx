@@ -48,7 +48,9 @@ export function CuboidCollider({
     <mesh
       ref={cuboid}
       position={position}
-      castShadow={false}>
+      castShadow={false}
+      receiveShadow={false}
+      visible={false}>
       <boxGeometry args={[args[0], args[1], args[2]]} />
       <meshBasicMaterial
         color={0xffffff}
@@ -91,10 +93,20 @@ export function CylinderCollider({
   }));
 
   return (
-    <group name={"ciln"} ref={cylinder} position={position}>
-      {/* <cylinderGeometry
+    <group
+      name={"ciln"}
+      ref={cylinder}
+      position={position}
+      castShadow={false}
+      receiveShadow={false}>
+      <cylinderGeometry
         args={[args[0], args[1], args[2], args[3]]}
-      /> */}
+      />
+      <meshBasicMaterial
+        color={0xffffff}
+        transparent
+        opacity={0}
+      />
       {children}
     </group>
   );

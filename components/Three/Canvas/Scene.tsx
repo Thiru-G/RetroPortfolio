@@ -26,6 +26,7 @@ import { ContactDynamics } from "./Physics/Dynamics/ContactDynamics";
 import YouTubeStatic from "./Physics/Statics/YouTubeStatic";
 import { YouTubeDynamics } from "./Physics/Dynamics/YouTubeDynamics";
 import { useLoaderScene } from "../Store/ThreeState";
+import { ContactShadows } from "@react-three/drei";
 
 export default function Scene() {
   const { setSceneLoaded } = useLoaderScene(
@@ -45,6 +46,12 @@ export default function Scene() {
         shadows
         gl={{ powerPreference: "high-performance" }}
         dpr={1}>
+        {/* <ContactShadows
+          width={100}
+          height={100}
+          blur={0.15}
+        /> */}
+
         <color attach='background' args={["#1e1e1e"]} />
         <Camera />
 

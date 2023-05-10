@@ -36,7 +36,7 @@ export default function HomeStatics() {
         scale={[1, 1, 1]}
         type='Static'
         position={[10.6791, 0.98023, -4.51703]}>
-        <mesh position={[0, 0, 0]}>
+        <mesh position={[0, 0, 0]} visible={false}>
           <cylinderGeometry
             args={[3.75983 / 2, 3.75983 / 2, 1.21148]}
           />

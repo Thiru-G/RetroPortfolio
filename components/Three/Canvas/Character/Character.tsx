@@ -213,7 +213,12 @@ export default function Character() {
         power={9}
       />
 
-      <mesh position={[0, 2, 0]} ref={spherePlayer}>
+      <mesh
+        position={[0, 2, 0]}
+        ref={spherePlayer}
+        castShadow={false}
+        receiveShadow={false}
+        visible={false}>
         <sphereGeometry args={[1, 16, 15]} />
         <meshBasicMaterial
           color={0xff00ff}
