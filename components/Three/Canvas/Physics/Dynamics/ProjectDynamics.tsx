@@ -50,6 +50,7 @@ export function ProjectDynamics({
           receiveShadow
           geometry={nodes.dice.geometry}
           material={materials.Dados}
+          rotation={[-1.03, 1.57, 0]}
           // position={[22.62, 1, 6.65]}
           // rotation={[3.13, -0.29, 3.13]}
         />
