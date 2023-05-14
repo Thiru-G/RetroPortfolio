@@ -8,7 +8,7 @@ export default function TechsStatics() {
         id='techs_secction'
         args={[3.97836, 1, 6.55238]}
         scale={[1, 1, 1]}
-        position={[55.1829, 0.5, 7.50619]}
+        position={[56, 0.704017, 8.2]}
         mass={0}
         type='Static'
         rotation={[0, (23.3827 * Math.PI) / 180, 0]}

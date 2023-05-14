@@ -1,22 +1,20 @@
 import * as THREE from "three";
-import React, { useRef } from "react";
+import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { CuboidColliderDynamic } from "../Utils/PhyshicsColliders";
+import { AtlasMaterial } from "../../Types/Three_Types";
 
 type GLTFResult = GLTF & {
   nodes: {
     Sponge: THREE.Mesh;
   };
-  materials: {
-    cream_dark_blue: THREE.MeshStandardMaterial;
-  };
 };
 
-export function YouTubeDynamics(
-  props: JSX.IntrinsicElements["group"]
-) {
-  const { nodes, materials } = useGLTF(
+export function YouTubeDynamics({
+  atlasMaterial,
+}: AtlasMaterial) {
+  const { nodes } = useGLTF(
     "/models/YouTubeDynamics.glb"
   ) as GLTFResult;
   return (
@@ -28,13 +26,13 @@ export function YouTubeDynamics(
       rotation={[0, 0.38, 0]}
       mass={1}
       type='Dynamic'>
-      <group {...props} dispose={null}>
+      <group dispose={null}>
         <mesh
           name='Sponge'
           castShadow
           receiveShadow
           geometry={nodes.Sponge.geometry}
-          material={materials.cream_dark_blue}
+          material={atlasMaterial}
         />
       </group>
     </CuboidColliderDynamic>

@@ -7,37 +7,34 @@ import {
   CylinderCollider,
   IcosphereCollider,
 } from "../Utils/PhyshicsColliders";
+import { AtlasMaterial } from "../../Types/Three_Types";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Circle023: THREE.Mesh;
-    Circle023_1: THREE.Mesh;
-    Icosphere: THREE.Mesh;
-    Plane125: THREE.Mesh;
-    Plane125_1: THREE.Mesh;
+    dice: THREE.Mesh;
+    dd_tower: THREE.Mesh;
     Plane123: THREE.Mesh;
     Plane123_1: THREE.Mesh;
     Plane124: THREE.Mesh;
     Plane124_1: THREE.Mesh;
+    Plane125: THREE.Mesh;
+    Plane125_1: THREE.Mesh;
   };
   materials: {
-    cream_grey: THREE.MeshStandardMaterial;
-    cream_dark: THREE.MeshStandardMaterial;
     Dados: THREE.MeshStandardMaterial;
+    Atlas_Texture: THREE.MeshStandardMaterial;
     Game_Pacman: THREE.MeshStandardMaterial;
-    Game_Space: THREE.MeshStandardMaterial;
-    cream_red: THREE.MeshStandardMaterial;
-    Games_Atari: THREE.MeshStandardMaterial;
   };
 };
-export function ProjectDynamics(
-  props: JSX.IntrinsicElements["group"]
-) {
+
+export function ProjectDynamics({
+  atlasMaterial,
+}: AtlasMaterial) {
   const { nodes, materials } = useGLTF(
     "/models/ProjectsSecctionDynamic.glb"
   ) as GLTFResult;
   return (
-    <group {...props} dispose={null}>
+    <group dispose={null}>
       <IcosphereCollider
         id='dado'
         args={1}
@@ -48,12 +45,13 @@ export function ProjectDynamics(
         rotation={[0, 0, 0]}
         scale={[1, 1, 1]}>
         <mesh
-          rotation={[-1.03, 1.57, 0]}
-          name='Icosphere'
+          name='dice'
           castShadow
           receiveShadow
-          geometry={nodes.Icosphere.geometry}
+          geometry={nodes.dice.geometry}
           material={materials.Dados}
+          // position={[22.62, 1, 6.65]}
+          // rotation={[3.13, -0.29, 3.13]}
         />
       </IcosphereCollider>
       <CylinderCollider
@@ -66,18 +64,14 @@ export function ProjectDynamics(
         type='Dynamic'>
         <group name='Circle032' scale={0.95}>
           <mesh
-            name='Circle023'
+            name='dd_tower'
             castShadow
             receiveShadow
-            geometry={nodes.Circle023.geometry}
-            material={materials.cream_grey}
-          />
-          <mesh
-            name='Circle023_1'
-            castShadow
-            receiveShadow
-            geometry={nodes.Circle023_1.geometry}
-            material={materials.cream_dark}
+            geometry={nodes.dd_tower.geometry}
+            material={atlasMaterial}
+            // position={[20.52, 1.87, 5.82]}
+            // rotation={[0, 0.62, 0]}
+            // scale={0.95}
           />
         </group>
       </CylinderCollider>
@@ -92,20 +86,23 @@ export function ProjectDynamics(
         rotation={[0, 0.22, 0]}
         mass={1}
         type='Dynamic'>
-        <group name='Pacman' scale={1.02}>
+        <group
+          name='Pacman'
+          // position={[31.68, 0.2, 5.48]}
+          scale={1.02}>
           <mesh
             name='Plane125'
             castShadow
             receiveShadow
             geometry={nodes.Plane125.geometry}
-            material={materials.cream_dark}
+            material={materials.Game_Pacman}
           />
           <mesh
             name='Plane125_1'
             castShadow
             receiveShadow
             geometry={nodes.Plane125_1.geometry}
-            material={materials.Game_Pacman}
+            material={atlasMaterial}
           />
         </group>
       </CuboidColliderDynamic>
@@ -121,48 +118,51 @@ export function ProjectDynamics(
         type='Dynamic'>
         <group
           name='Space'
-          scale={1.02}
-          rotation={[0, -0.22, 0]}>
+          // position={[31.59, 0.61, 5.42]}
+          scale={1.02}>
           <mesh
             name='Plane123'
             castShadow
             receiveShadow
             geometry={nodes.Plane123.geometry}
-            material={materials.Game_Space}
+            material={materials.Game_Pacman}
           />
           <mesh
             name='Plane123_1'
             castShadow
             receiveShadow
             geometry={nodes.Plane123_1.geometry}
-            material={materials.cream_red}
+            material={atlasMaterial}
           />
         </group>
       </CuboidColliderDynamic>
 
       {/* ET */}
       <CuboidColliderDynamic
-        id='Space'
+        id='ET'
         args={[2, 2.45799, 0.405648]}
         scale={[1, 1, 1]}
         position={[30.23, 1.23, 7.75]}
         rotation={[0, 0, 0]}
         mass={1}
         type='Dynamic'>
-        <group name='ET' scale={1.02}>
+        <group
+          name='ET'
+          // position={[30.23, 1.23, 7.75]}
+          scale={1.02}>
           <mesh
             name='Plane124'
             castShadow
             receiveShadow
             geometry={nodes.Plane124.geometry}
-            material={materials.cream_dark}
+            material={materials.Game_Pacman}
           />
           <mesh
             name='Plane124_1'
             castShadow
             receiveShadow
             geometry={nodes.Plane124_1.geometry}
-            material={materials.Games_Atari}
+            material={atlasMaterial}
           />
         </group>
       </CuboidColliderDynamic>

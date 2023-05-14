@@ -4,25 +4,19 @@ import { useGLTF } from "@react-three/drei";
 import { ThreeEvent } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
 import { CuboidColliderDynamic } from "../Utils/PhyshicsColliders";
+import { AtlasMaterial } from "../../Types/Three_Types";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube020: THREE.Mesh;
-    Cube020_1: THREE.Mesh;
-    Cube021: THREE.Mesh;
-    Cube021_1: THREE.Mesh;
-  };
-  materials: {
-    cream_dark_blue: THREE.MeshStandardMaterial;
-    cream_yellow_light: THREE.MeshStandardMaterial;
-    cream_dark: THREE.MeshStandardMaterial;
+    LinkedIn: THREE.Mesh;
+    GitHub: THREE.Mesh;
   };
 };
 
-export function ContactDynamics(
-  props: JSX.IntrinsicElements["group"]
-) {
-  const { nodes, materials } = useGLTF(
+export function ContactDynamics({
+  atlasMaterial,
+}: AtlasMaterial) {
+  const { nodes } = useGLTF(
     "/models/ContactSecctionDynamics.glb"
   ) as GLTFResult;
 
@@ -39,7 +33,7 @@ export function ContactDynamics(
   };
 
   return (
-    <group {...props} dispose={null}>
+    <group dispose={null}>
       <CuboidColliderDynamic
         id='linkedin'
         args={[1, 1, 1]}
@@ -60,18 +54,11 @@ export function ContactDynamics(
             )
           }>
           <mesh
-            name='Cube020'
+            name='LinkedIn'
             castShadow
             receiveShadow
-            geometry={nodes.Cube020.geometry}
-            material={materials.cream_dark_blue}
-          />
-          <mesh
-            name='Cube020_1'
-            castShadow
-            receiveShadow
-            geometry={nodes.Cube020_1.geometry}
-            material={materials.cream_yellow_light}
+            geometry={nodes.LinkedIn.geometry}
+            material={atlasMaterial}
           />
         </group>
       </CuboidColliderDynamic>
@@ -96,18 +83,11 @@ export function ContactDynamics(
             )
           }>
           <mesh
-            name='Cube021'
+            name='GitHub'
             castShadow
             receiveShadow
-            geometry={nodes.Cube021.geometry}
-            material={materials.cream_dark}
-          />
-          <mesh
-            name='Cube021_1'
-            castShadow
-            receiveShadow
-            geometry={nodes.Cube021_1.geometry}
-            material={materials.cream_yellow_light}
+            geometry={nodes.GitHub.geometry}
+            material={atlasMaterial}
           />
         </group>
       </CuboidColliderDynamic>

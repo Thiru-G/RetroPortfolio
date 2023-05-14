@@ -1,5 +1,10 @@
-import React, { useEffect } from "react";
+import React, {
+  useEffect,
+  Suspense,
+  useState,
+} from "react";
 import { Canvas } from "@react-three/fiber";
+import * as THREE from "three";
 import Camera from "./Camera/Camera";
 import Lights from "./Lights/Lights";
 import Character from "./Character/Character";
@@ -26,17 +31,32 @@ import { ContactDynamics } from "./Physics/Dynamics/ContactDynamics";
 import YouTubeStatic from "./Physics/Statics/YouTubeStatic";
 import { YouTubeDynamics } from "./Physics/Dynamics/YouTubeDynamics";
 import { useLoaderScene } from "../Store/ThreeState";
-import { ContactShadows } from "@react-three/drei";
+import {
+  ContactShadows,
+  OrbitControls,
+} from "@react-three/drei";
+import { LoadTexture } from "./Utils/LoadTextures";
 
 export default function Scene() {
   const { setSceneLoaded } = useLoaderScene(
     (state) => state
   );
 
+  const [globalMaterial, setGlobalMaterial] =
+    useState<THREE.MeshStandardMaterial>(
+      new THREE.MeshStandardMaterial()
+    );
+
   useEffect(() => {
-    setTimeout(() => {
-      setSceneLoaded(true);
-    }, 3000);
+    LoadTexture("./textures/Atlas_Fall.jpg")
+      .then((text) => {
+        globalMaterial.map = text;
+        globalMaterial.needsUpdate = true;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    setSceneLoaded(true);
   }, []);
 
   return (
@@ -58,14 +78,13 @@ export default function Scene() {
         {/* 
         Scene models
       */}
-        <HomeSecction />
-        <ProjectSecction />
-        <TechsSecction />
-
-        <DesktopModel />
-        <Wall />
-        <ContactSecction />
-        <YouTubeSecction />
+        <HomeSecction atlasMaterial={globalMaterial} />
+        <ProjectSecction atlasMaterial={globalMaterial} />
+        <TechsSecction atlasMaterial={globalMaterial} />
+        <DesktopModel atlasMaterial={globalMaterial} />
+        <Wall atlasMaterial={globalMaterial} />
+        <ContactSecction atlasMaterial={globalMaterial} />
+        <YouTubeSecction atlasMaterial={globalMaterial} />
 
         {/* 
         Physics Secctions
@@ -75,8 +94,7 @@ export default function Scene() {
           gravity={[0, -9.8, 0]}
           frictionGravity={[0, 1, 0]}
           defaultContactMaterial={{ restitution: 0.3 }}>
-          {/* <Debug color='black' scale={1.01}>
-        </Debug> */}
+          {/* <Debug color='black' scale={1.01}> */}
           {/* Character */}
           <Character />
 
@@ -89,14 +107,19 @@ export default function Scene() {
           <YouTubeStatic />
 
           {/* Dynamics */}
-          <HomeDynamics />
-          <ProjectDynamics />
-          <TechsDynamics />
-          <ContactDynamics />
-          <YouTubeDynamics />
+          <HomeDynamics atlasMaterial={globalMaterial} />
+          <ProjectDynamics atlasMaterial={globalMaterial} />
+          <TechsDynamics atlasMaterial={globalMaterial} />
+          <ContactDynamics atlasMaterial={globalMaterial} />
+          <YouTubeDynamics atlasMaterial={globalMaterial} />
 
           {/* Basic */}
           <PlaneSecctionPhysics />
+          {/* <OrbitControls
+              enableDamping={true}
+              enablePan={true}
+            /> */}
+          {/* </Debug> */}
         </Physics>
 
         <Lights />
