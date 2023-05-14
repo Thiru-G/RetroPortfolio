@@ -8,7 +8,7 @@ export default function GeneralStatics() {
         id='wall_side'
         args={[113, 2, 2]}
         scale={[1, 1, 1]}
-        position={[41.1518, 1, -6.85866]}
+        position={[41.1518, 1, -3.85866]}
         mass={0}
         type='Static'
         rotation={[0, 0, 0]}
