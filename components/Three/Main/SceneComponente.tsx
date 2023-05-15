@@ -24,11 +24,11 @@ const SceneDynamic = dynamic(
 export default function SceneComponente() {
   return (
     <div style={{ width: "100%", height: "100vh" }}>
-      {/* <Loader /> */}
+      <Loader />
       <Suspense fallback={null}>
         <SceneDynamic />
       </Suspense>
-      {/* <PlayerSound /> */}
+      <PlayerSound />
     </div>
   );
 }
