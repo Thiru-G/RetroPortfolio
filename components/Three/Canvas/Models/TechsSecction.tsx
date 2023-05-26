@@ -7,8 +7,8 @@ import { AtlasMaterial } from "../Types/Three_Types";
 type GLTFResult = GLTF & {
   nodes: {
     Text002: THREE.Mesh;
-    Text007: THREE.Mesh;
     Game_Boy_Window: THREE.Mesh;
+    Text007: THREE.Mesh;
     Cube008: THREE.Mesh;
     Cube010: THREE.Mesh;
     Cube011: THREE.Mesh;
@@ -37,6 +37,14 @@ type GLTFResult = GLTF & {
     Circle040: THREE.Mesh;
     Circle047: THREE.Mesh;
     Plane117: THREE.Mesh;
+    Cylinder010: THREE.Mesh;
+    Sphere003: THREE.Mesh;
+    Sphere009: THREE.Mesh;
+    Sphere010: THREE.Mesh;
+    Sphere011: THREE.Mesh;
+    Sphere012: THREE.Mesh;
+    Sphere013: THREE.Mesh;
+    Sphere014: THREE.Mesh;
   };
 };
 
@@ -61,6 +69,15 @@ export function TechsSecction({
           scale={-3.29}
         />
         <mesh
+          name='Game_Boy_Window'
+          castShadow
+          receiveShadow
+          geometry={nodes.Game_Boy_Window.geometry}
+          material={atlasMaterial}
+          position={[55.58, 0.7, 6.8]}
+          rotation={[0, 0.42, 0]}
+        />
+        <mesh
           name='Text007'
           castShadow
           receiveShadow
@@ -69,15 +86,6 @@ export function TechsSecction({
           position={[47.55, 6.14, -7.6]}
           rotation={[Math.PI / 2, 0, 2.06]}
           scale={1.36}
-        />
-        <mesh
-          name='Game_Boy_Window'
-          castShadow
-          receiveShadow
-          geometry={nodes.Game_Boy_Window.geometry}
-          material={atlasMaterial}
-          position={[55.58, 0.7, 6.8]}
-          rotation={[0, 0.42, 0]}
         />
         <mesh
           name='Cube008'
@@ -341,6 +349,81 @@ export function TechsSecction({
           position={[56.78, 0.92, 9.54]}
           rotation={[0, 0.84, 0]}
           scale={[0.24, 0.24, 0.1]}
+        />
+        <mesh
+          name='Cylinder010'
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder010.geometry}
+          material={atlasMaterial}
+          position={[52.21, 5.54, -6.1]}
+          scale={[0.91, 0.91, 0.73]}
+        />
+        <mesh
+          name='Sphere003'
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere003.geometry}
+          material={atlasMaterial}
+          position={[52.21, 5.54, -6.21]}
+          scale={0.32}
+        />
+        <mesh
+          name='Sphere009'
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere009.geometry}
+          material={atlasMaterial}
+          position={[52.2, 5.26, -5.46]}
+          rotation={[0, 0.21, 0]}
+          scale={[0.22, 0.12, 0.22]}
+        />
+        <mesh
+          name='Sphere010'
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere010.geometry}
+          material={atlasMaterial}
+          position={[52.2, 5.09, -5.51]}
+          rotation={[0, 0.21, 0]}
+          scale={[0.22, 0.12, 0.22]}
+        />
+        <mesh
+          name='Sphere011'
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere011.geometry}
+          material={atlasMaterial}
+          position={[52.21, 5.54, -6.1]}
+          scale={[0.13, 0.07, 0.13]}
+        />
+        <mesh
+          name='Sphere012'
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere012.geometry}
+          material={atlasMaterial}
+          position={[52.21, 5.54, -6.1]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.2}
+        />
+        <mesh
+          name='Sphere013'
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere013.geometry}
+          material={atlasMaterial}
+          position={[52.21, 5.54, -6.1]}
+          scale={[0.43, 0.28, 0.43]}
+        />
+        <mesh
+          name='Sphere014'
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere014.geometry}
+          material={atlasMaterial}
+          position={[52.21, 5.54, -6.1]}
+          scale={[0.43, 0.28, 0.43]}
         />
       </group>
     </group>
