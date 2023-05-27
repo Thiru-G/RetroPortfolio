@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 interface BodyTextProps {
-  children: string;
+  children: string | React.ReactNode;
   color: string;
   uppercase: boolean;
   weight: string;

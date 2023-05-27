@@ -7,6 +7,7 @@ import Projects from "@/components/UI/Projects/Projects";
 import Contact from "@/components/UI/Contact/Contact";
 import { useLoaderScene } from "@/components/Three/Store/ThreeState";
 import LineSeparator from "@/components/common/separator/LineSeparator";
+import Head from "next/head";
 
 export default function Home() {
   const { setMusicLoaded, setSceneLoaded, setHideLoader } =
@@ -21,6 +22,11 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Welcome to my portfolio</title>
+        <link rel='shortcut icon' href='./ico/ico.svg' />
+      </Head>
+
       <Layout>
         <>
           <Hero />
