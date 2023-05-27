@@ -74,7 +74,7 @@ export default function About() {
             "w-full"
           )}>
           <HeaderLine>Juan gonzalez</HeaderLine>
-          <CommandLine command='ls' label='_resume' />
+          <CommandLine command='ls' label='resume' />
           <BodyLine>
             Hello, I&apos;m a Full-Stack developer based in
             Mexico. I love working with Web Technologies and
@@ -108,6 +108,9 @@ export default function About() {
             id='about-education-school'
             className='w-full'>
             <CommandLine command='echo' label='education' />
+            <BodyLine>
+              Engineering in Computer Science(2016 - 2023)
+            </BodyLine>
             <BodyLine>
               Benemerita Univeridad Autonoma De Puebla -
               BUAP

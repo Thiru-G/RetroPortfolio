@@ -27,7 +27,7 @@ import HeaderLine from "@/components/common/consoles/console_lines/HeaderLine";
 export default function Experience() {
   const dataFront = {
     header: {
-      label: "HOB",
+      label: "front_end",
       items: ["TYPE", "NAME"],
     },
     description: {
@@ -74,7 +74,7 @@ export default function Experience() {
 
   const dataBack = {
     header: {
-      label: "HOB",
+      label: "back_end",
       items: ["TYPE", "NAME"],
     },
     description: {
@@ -116,7 +116,7 @@ export default function Experience() {
 
   const dataDesign = {
     header: {
-      label: "HOB",
+      label: "design",
       items: ["TYPE", "NAME"],
     },
     description: {

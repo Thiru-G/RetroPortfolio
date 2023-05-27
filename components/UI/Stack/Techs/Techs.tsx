@@ -10,7 +10,7 @@ export default function Techs({
 }: Table_ConsoleProps) {
   return (
     <div className={clsx("w-full")}>
-      <CommandLine command='ls' label='front_end' />
+      <CommandLine command='ls' label={headers.label} />
       <div className='pt-4 pl-[28px]'>
         <Table_Console
           headers={headers}
