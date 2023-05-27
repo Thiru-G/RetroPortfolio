@@ -8,11 +8,11 @@ export interface HeaderProps {
 }
 
 export interface DescriptionProps {
-  label: string;
+  label: string | React.Component;
   items: Array<{
     prefix: string;
     icon: React.ReactNode;
-    label: string;
+    label: string | React.ReactNode;
   }>;
 }
 

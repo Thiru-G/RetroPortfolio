@@ -29,17 +29,35 @@ export default function Contact() {
     items: [
       {
         prefix: "social",
-        label: "@juan-glez",
+        label: (
+          <Link
+            href={"https://www.linkedin.com/in/juanglezf/"}
+            target='_blank'>
+            @juan-glez
+          </Link>
+        ),
         icon: <AiFillLinkedin />,
       },
       {
         prefix: "social",
-        label: "JohnScript-72",
+        label: (
+          <Link
+            href={"https://github.com/SirJohn72-script"}
+            target='_blank'>
+            JohnScript-72
+          </Link>
+        ),
         icon: <AiFillGithub />,
       },
       {
         prefix: "social",
-        label: "JohnScript",
+        label: (
+          <Link
+            href={"https://www.youtube.com/c/JohnScript72"}
+            target='_blank'>
+            JohnScript
+          </Link>
+        ),
         icon: <AiFillYoutube />,
       },
     ],
