@@ -20,8 +20,9 @@ export default function Projects() {
       description: `This is a little project made in React and Three.js, where I explore the capabilities of Three.js for change a scene in hot reload(still working).`,
       techs: ["Three.js", "WebXR", "React"],
       linkTo: () =>
-        router.push(
-          "https://github.com/SirJohn72-script/DronesCustimizationSystem"
+        window.open(
+          "https://github.com/SirJohn72-script/DronesCustimizationSystem",
+          "_blank"
         ),
     },
     {
@@ -37,7 +38,10 @@ export default function Projects() {
         "TypeScript",
       ],
       linkTo: () =>
-        router.push("https://noche-estrellas.vercel.app/"),
+        window.open(
+          "https://noche-estrellas.vercel.app/",
+          "_blank"
+        ),
     },
     {
       id: 3,
@@ -53,8 +57,9 @@ export default function Projects() {
         "Blender",
       ],
       linkTo: () =>
-        router.push(
-          "https://www.youtube.com/c/JohnScript72"
+        window.open(
+          "https://www.youtube.com/c/JohnScript72",
+          "_blank"
         ),
     },
   ]);
