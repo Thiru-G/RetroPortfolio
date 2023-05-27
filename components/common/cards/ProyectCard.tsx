@@ -65,9 +65,7 @@ export default function ProyectCard({
         </div>
       </div>
       <div className='button_project'>
-        <PrimaryButton event={linkTo}>
-          Visitar
-        </PrimaryButton>
+        <PrimaryButton event={linkTo}>Visit</PrimaryButton>
       </div>
     </div>
   );
