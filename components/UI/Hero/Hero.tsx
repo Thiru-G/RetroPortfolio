@@ -37,14 +37,17 @@ export default function Hero() {
             )}>
             <PrimaryButton
               event={() =>
-                router.push(
-                  "https://github.com/SirJohn72-script"
+                window.open(
+                  "https://github.com/SirJohn72-script",
+                  "_blank"
                 )
               }>
               GitHub
             </PrimaryButton>
             <PrimaryButton
-              event={() => router.push("/version3d")}>
+              event={() =>
+                window.open("/version3d", "_blank")
+              }>
               3D Version
             </PrimaryButton>
           </div>
