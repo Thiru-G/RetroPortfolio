@@ -6,13 +6,37 @@ import clsx from "clsx";
 import CommandLine from "@/components/common/consoles/console_lines/CommandLine";
 import ProyectCard from "@/components/common/cards/ProyectCard";
 import { useRouter } from "next/router";
-import { GiDeliveryDrone, GiGalaxy } from "react-icons/gi";
+import {
+  GiDeliveryDrone,
+  GiMaterialsScience,
+} from "react-icons/gi";
 import { IoMdPlanet } from "react-icons/io";
+import { BsFillPinMapFill } from "react-icons/bs";
+import { MdCatchingPokemon } from "react-icons/md";
 import Logo from "@/components/common/icons/Logo";
 
 export default function Projects() {
   const router = useRouter();
   const [projects, setProjects] = useState([
+    {
+      id: 0,
+      icon: <Logo />,
+      title: "JohnScript YouTube",
+      description: `I started a YouTube Channel, where I teach how to start and use Three.js mainly with React, also a little bit of WebXR. `,
+      techs: [
+        "Three.js",
+        "React-Three-Fiber",
+        "WebXR",
+        "React",
+        "Typescript",
+        "Blender",
+      ],
+      linkTo: () =>
+        window.open(
+          "https://www.youtube.com/c/JohnScript72",
+          "_blank"
+        ),
+    },
     {
       id: 1,
       icon: <GiDeliveryDrone />,
@@ -45,20 +69,37 @@ export default function Projects() {
     },
     {
       id: 3,
-      icon: <Logo />,
-      title: "JohnScript YouTube",
-      description: `I started a YouTube Channel, where I teach how to start and use Three.js mainly with React, also a little bit of WebXR. `,
-      techs: [
-        "Three.js",
-        "React-Three-Fiber",
-        "WebXR",
-        "React",
-        "Typescript",
-        "Blender",
-      ],
+      icon: <BsFillPinMapFill />,
+      title: "BUAP Map(No official)",
+      description: `A map of my university BUAP and some indicators. This was one of my firsts projects using three.js and React.`,
+      techs: ["Three.js", "WebXR", "Blender"],
       linkTo: () =>
         window.open(
-          "https://www.youtube.com/c/JohnScript72",
+          "https://github.com/SirJohn72-script/mapaBuap",
+          "_blank"
+        ),
+    },
+    {
+      id: 4,
+      icon: <MdCatchingPokemon />,
+      title: "3D Pokedex",
+      description: `The typical Pokedex API for beginners. But using three.js and React, the main idea behind this project is mixing 3d and HTML.`,
+      techs: ["Three.js", "Next.js", "Blender"],
+      linkTo: () =>
+        window.open(
+          "https://github.com/SirJohn72-script/pokedex_switch",
+          "_blank"
+        ),
+    },
+    {
+      id: 5,
+      icon: <GiMaterialsScience />,
+      title: "Shaders with GLSL",
+      description: `This is a template for using the basics of GLSL with Three.js and React(on updating).`,
+      techs: ["Three.js", "React", "GLSL"],
+      linkTo: () =>
+        window.open(
+          "https://github.com/SirJohn72-script/Shaders-Three.js",
           "_blank"
         ),
     },

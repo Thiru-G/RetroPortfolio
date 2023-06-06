@@ -32,7 +32,7 @@ export default function Hero() {
           <HeroLine>in just one</HeroLine>
           <div
             className={clsx(
-              "py-3 lg:pl-[40px] flex flex-wrap gap-3",
+              "py-3 lg:pl-[45px] flex flex-wrap gap-3",
               "pl-[10px]"
             )}>
             <PrimaryButton
