@@ -11,7 +11,7 @@ import PrimaryButton from "@/components/common/buttons/PrimaryButton";
 export default function LearnThree() {
   return (
     <ConsoleSecction
-      id='learn_three'
+      id='learn_three_js'
       border={true}
       icon={<Tb3DCubeSphere />}
       branch={"learn_three_js"}>
@@ -29,10 +29,10 @@ export default function LearnThree() {
           </HeaderLine>
           <CommandLine label='show_info' command='cat' />
           <BodyLine>
-            I've created a YouTube Channel where I teach and
-            show how to use 3D technologies like Blender and
-            Three.js with React to create web pages with
-            unique experiences.
+            I&apos;ve created a YouTube Channel where I
+            teach and show how to use 3D technologies like
+            Blender and Three.js with React to create web
+            pages with unique experiences.
           </BodyLine>
           <BodyLine>
             If you want to check it out, please click the

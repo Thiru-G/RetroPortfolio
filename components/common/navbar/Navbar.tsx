@@ -24,6 +24,10 @@ export default function Navbar() {
       to: "about",
     },
     {
+      label: "Learn Three.js",
+      to: "learn_three_js",
+    },
+    {
       label: "Contact",
       to: "contact",
     },
