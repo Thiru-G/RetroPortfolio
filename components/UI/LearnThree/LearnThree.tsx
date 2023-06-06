@@ -40,12 +40,16 @@ export default function LearnThree() {
           </BodyLine>
           <div
             className={clsx(
-              "py-3 lg:pl-[45px] flex flex-wrap gap-3",
-              "pl-[10px]"
+              "py-3 pl-[45px] flex flex-wrap gap-3"
             )}>
             <PrimaryButton
-              event={() => console.log("welcome")}>
-              Go yo YouTube
+              event={() =>
+                window.open(
+                  "https://www.youtube.com/c/JohnScript72",
+                  "_blank"
+                )
+              }>
+              YouTube
             </PrimaryButton>
           </div>
         </div>
