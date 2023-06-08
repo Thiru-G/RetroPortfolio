@@ -80,20 +80,21 @@ export default function About() {
             )}>
             <CommandLine command='ls' label='resume' />
             <BodyLine>
-              Hello, I&apos;m a Full-Stack developer based
-              in Mexico. I love working with Web
-              Technologies and mix them with 3D to making
-              pages with a different taste and feeling.
+              Hello! I&apos;m a Full-Stack developer based
+              in Mexico who enjoys working with Web
+              Technologies and integrating them with 3D to
+              create unique and captivating web pages.
             </BodyLine>
             <BodyLine>
-              In addition, I have worked with Back-End
-              technologies, such as .NET, ASP.NET and SQL
-              Server, and with Cloud services like Azure and
-              Azure DevOps
+              Additionally, my experience includes working
+              with Back-End technologies such as .NET,
+              ASP.NET, and SQL Server, as well as utilizing
+              Cloud services like Azure and Azure DevOps.
             </BodyLine>
             <BodyLine>
-              I&apos;m open to work with new technologies to
-              solve new challenges and get new opportunities
+              My passion for learning drives me to explore
+              new technologies, tackle fresh challenges, and
+              seek out exciting opportunities.
             </BodyLine>
             <div
               className={clsx("py-3 pl-[45px] flex gap-3")}>
