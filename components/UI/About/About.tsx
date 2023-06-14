@@ -97,7 +97,7 @@ export default function About() {
               seek out exciting opportunities.
             </BodyLine>
             <div
-              className={clsx("py-3 pl-[45px] flex gap-3")}>
+              className={clsx("py-3 pl-[30px] flex gap-3")}>
               <PrimaryButton event={() => openCV()}>
                 Download CV
               </PrimaryButton>

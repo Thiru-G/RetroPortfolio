@@ -40,7 +40,7 @@ export default function LearnThree() {
           </BodyLine>
           <div
             className={clsx(
-              "py-3 pl-[45px] flex flex-wrap gap-3"
+              "py-3 pl-[30px] flex flex-wrap gap-3"
             )}>
             <PrimaryButton
               event={() =>
