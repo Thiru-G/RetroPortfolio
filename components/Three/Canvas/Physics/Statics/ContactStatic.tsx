@@ -22,6 +22,15 @@ export default function ContactStatic() {
         type='Static'
         rotation={[0, 0, 0]}
       />
+      <CuboidCollider
+        id='credential'
+        args={[5.81, 1, 5.48]}
+        scale={[1, 1, 1]}
+        position={[93.32, 0.5, 3.7]}
+        mass={0}
+        type='Static'
+        rotation={[0, -0.52, 0]}
+      />
     </>
   );
 }

@@ -35,9 +35,12 @@ type GLTFResult = GLTF & {
     Cactus_Hat: THREE.Mesh;
     Cactus_eye: THREE.Mesh;
     Cattus_mustache: THREE.Mesh;
+    Credential: THREE.Mesh;
+    Credential_base: THREE.Mesh;
   };
   materials: {
     postips: THREE.MeshStandardMaterial;
+    Credential_data: THREE.MeshPhysicalMaterial;
   };
 };
 
@@ -319,37 +322,25 @@ export function ContactSecction({
           material={atlasMaterial}
           position={[76.62, 2.5, -4.96]}
         />
+        <mesh
+          name='Credential'
+          castShadow
+          receiveShadow
+          geometry={nodes.Credential.geometry}
+          material={atlasMaterial}
+          position={[92.78, 0.25, 4.73]}
+          rotation={[0.13, -0.49, 0.06]}
+        />
+        <mesh
+          name='Credential_base'
+          geometry={nodes.Credential_base.geometry}
+          material={materials.Credential_data}
+          position={[92.78, 0.25, 4.73]}
+          rotation={[0.13, -0.49, 0.06]}
+        />
       </group>
     </group>
   );
 }
 
 useGLTF.preload("/models/ContactSecction.glb");
-
-{
-  /* <mesh
-  name='Contact'
-  castShadow
-  receiveShadow
-  geometry={nodes.Contact.geometry}
-  position={[83.41, 0.39, 2.71]}
-  rotation={[0.12, -0.18, 0.02]}
-  scale={[0.09, 0.09, 0.11]}
-  onPointerOver={(e) => {
-    setHover(true);
-    handlePointerOver(e);
-  }}
-  onPointerOut={(e) => {
-    setHover(false);
-    handlePointerOut(e);
-  }}
-  onClick={() =>
-    window.open(
-      "mailto:j.gonzalez_f@outlook.com?subject=Hello%20there"
-    )
-  }>
-  <meshStandardMaterial
-    color={hovered ? "green" : "red"}
-  />
-        </mesh>; */
-}
