@@ -15,27 +15,27 @@ export default function GeneralStatics() {
       />
       <CuboidCollider
         id='left_side'
-        args={[2, 2, 36]}
+        args={[2, 2, 34]}
         scale={[1, 1, 1]}
-        position={[-17.02176, 1, 1.70374]}
+        position={[-21.82, 1, 1.45]}
         mass={0}
         type='Static'
         rotation={[0, 0, 0]}
       />
       <CuboidCollider
         id='front-side'
-        args={[113, 2, 2]}
+        args={[118, 2, 2]}
         scale={[1, 1, 1]}
-        position={[41.1518, 1, 19.5439]}
+        position={[38.19, 1, 19.72]}
         mass={0}
         type='Static'
         rotation={[0, 0, 0]}
       />
       <CuboidCollider
-        id='right'
-        args={[2, 2, 20]}
+        id='right-side'
+        args={[2, 2, 34]}
         scale={[1, 1, 1]}
-        position={[94.5, 1, 7.70374]}
+        position={[98.29, 1, 1.45]}
         mass={0}
         type='Static'
         rotation={[0, 0, 0]}

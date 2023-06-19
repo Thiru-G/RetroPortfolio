@@ -100,8 +100,8 @@ export default function Scene() {
 
             {/* Statics */}
             <HomeStatics />
-            {/* <ProjectsStatics /> */}
-            {/* <TechsStatics /> */}
+            <ProjectsStatics />
+            <TechsStatics />
             <GeneralStatics />
             <ContactStatic />
             <YouTubeStatic />
