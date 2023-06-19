@@ -20,7 +20,7 @@ import { Wall } from "./Models/Wall";
 import { Physics, Debug } from "@react-three/cannon";
 import PlaneSecctionPhysics from "./Physics/Utils/PlaneSecctionPhysics";
 import HomeStatics from "./Physics/Statics/HomeStatics";
-// import { HomeDynamics } from "./Physics/Dynamics/HomeDynamics";
+import { HomeDynamics } from "./Physics/Dynamics/HomeDynamics";
 import { ProjectDynamics } from "./Physics/Dynamics/ProjectDynamics";
 import TechsStatics from "./Physics/Statics/TechsStatic";
 import GeneralStatics from "./Physics/Statics/GeneralStatics";
@@ -94,32 +94,38 @@ export default function Scene() {
           gravity={[0, -9.8, 0]}
           frictionGravity={[0, 1, 0]}
           defaultContactMaterial={{ restitution: 0.3 }}>
-          {/* <Debug color='black' scale={1.01}> */}
-          {/* Character */}
-          <Character />
+          <Debug color='black' scale={1.01}>
+            {/* Character */}
+            <Character />
 
-          {/* Statics */}
-          {/* <HomeStatics /> */}
-          <ProjectsStatics />
-          <TechsStatics />
-          <GeneralStatics />
-          <ContactStatic />
-          <YouTubeStatic />
+            {/* Statics */}
+            <HomeStatics />
+            {/* <ProjectsStatics /> */}
+            {/* <TechsStatics /> */}
+            <GeneralStatics />
+            {/* <ContactStatic /> */}
+            {/* <YouTubeStatic /> */}
 
-          {/* Dynamics */}
-          {/* <HomeDynamics atlasMaterial={globalMaterial} /> */}
-          <ProjectDynamics atlasMaterial={globalMaterial} />
-          <TechsDynamics atlasMaterial={globalMaterial} />
-          <ContactDynamics atlasMaterial={globalMaterial} />
-          <YouTubeDynamics atlasMaterial={globalMaterial} />
+            {/* Dynamics */}
+            <HomeDynamics atlasMaterial={globalMaterial} />
+            <ProjectDynamics
+              atlasMaterial={globalMaterial}
+            />
+            <TechsDynamics atlasMaterial={globalMaterial} />
+            <ContactDynamics
+              atlasMaterial={globalMaterial}
+            />
+            <YouTubeDynamics
+              atlasMaterial={globalMaterial}
+            />
 
-          {/* Basic */}
-          <PlaneSecctionPhysics />
-          {/* <OrbitControls
+            {/* Basic */}
+            <PlaneSecctionPhysics />
+            {/* <OrbitControls
             enableDamping={true}
             enablePan={true}
           /> */}
-          {/* </Debug> */}
+          </Debug>
         </Physics>
 
         <Lights />

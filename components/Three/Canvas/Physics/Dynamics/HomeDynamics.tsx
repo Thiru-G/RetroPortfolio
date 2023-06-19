@@ -10,6 +10,7 @@ type GLTFResult = GLTF & {
     Coffee_1: THREE.Mesh;
     coffee_2: THREE.Mesh;
     coffee_3: THREE.Mesh;
+    CokeCup: THREE.Mesh;
   };
 };
 
@@ -17,7 +18,7 @@ export function HomeDynamics({
   atlasMaterial,
 }: AtlasMaterial) {
   const { nodes } = useGLTF(
-    "/models/DynamicElements.glb"
+    "/models/HomeSecctionDynamics.glb"
   ) as GLTFResult;
   return (
     <group dispose={null}>
@@ -71,8 +72,25 @@ export function HomeDynamics({
           material={atlasMaterial}
         />
       </CylinderCollider>
+
+      <CylinderCollider
+        id='cokecup'
+        args={[1.3, 1.09, 4.85]}
+        position={[-11.97, 2.47166, 7.14615]}
+        rotation={[0, 0, 0]}
+        mass={1}
+        scale={[1, 1, 1]}
+        type='Dynamic'>
+        <mesh
+          name='CokeCup'
+          castShadow
+          receiveShadow
+          geometry={nodes.CokeCup.geometry}
+          material={atlasMaterial}
+        />
+      </CylinderCollider>
     </group>
   );
 }
 
-useGLTF.preload("/models/DynamicElements.glb");
+useGLTF.preload("/models/HomeSecctionDynamics.glb");

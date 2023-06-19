@@ -20,6 +20,33 @@ export default function HomeStatics() {
         rotation={[0, 0, 0]}
       />
       <CuboidCollider
+        id='dixie_clock'
+        args={[7.93, 2.87, 4.46]}
+        scale={[0, 0, 0]}
+        position={[-13.02, 1.45, -3.11]}
+        mass={0}
+        type='Static'
+        rotation={[0, 0.631, 0]}
+      />
+      <CuboidCollider
+        id='bird_pendulum'
+        args={[1.49, 1.49, 1.59]}
+        scale={[1, 1, 1]}
+        position={[0.48, 0.77, 8.37]}
+        mass={0}
+        type='Static'
+        rotation={[0, 0, 0]}
+      />
+      <CuboidCollider
+        id='halflife_level'
+        args={[17.3, 1, 1.2]}
+        scale={[1, 1, 1]}
+        position={[-8.2, 0.5, 15.23]}
+        mass={0}
+        type='Static'
+        rotation={[0, -0.21, 0]}
+      />
+      <CuboidCollider
         id='teclado'
         args={[15.2, 1.4563, 5.4844]}
         scale={[1, 1, 1]}
