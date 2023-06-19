@@ -11,7 +11,11 @@ export default function PlaneSecctionPhysics() {
   return (
     <mesh ref={ref} position={[0, 0, 0]} name='floor'>
       <boxGeometry args={[120, 1, 34]} />
-      <meshBasicMaterial color={"#ff0000"} opacity={0} />
+      <meshBasicMaterial
+        color={"#ff0000"}
+        opacity={0}
+        transparent
+      />
     </mesh>
   );
 }
