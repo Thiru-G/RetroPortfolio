@@ -56,7 +56,9 @@ export default function Scene() {
       .catch((err) => {
         console.log(err);
       });
-    setSceneLoaded(true);
+    setTimeout(() => {
+      setSceneLoaded(true);
+    }, 2000);
   }, []);
 
   return (
@@ -94,38 +96,32 @@ export default function Scene() {
           gravity={[0, -9.8, 0]}
           frictionGravity={[0, 1, 0]}
           defaultContactMaterial={{ restitution: 0.3 }}>
-          <Debug color='black' scale={1.01}>
-            {/* Character */}
-            <Character />
+          {/* <Debug color='black' scale={1.01}> */}
+          {/* Character */}
+          <Character />
 
-            {/* Statics */}
-            <HomeStatics />
-            <ProjectsStatics />
-            <TechsStatics />
-            <GeneralStatics />
-            <ContactStatic />
-            <YouTubeStatic />
+          {/* Statics */}
+          <HomeStatics />
+          <ProjectsStatics />
+          <TechsStatics />
+          <GeneralStatics />
+          <ContactStatic />
+          <YouTubeStatic />
 
-            {/* Dynamics */}
-            <HomeDynamics atlasMaterial={globalMaterial} />
-            <ProjectDynamics
-              atlasMaterial={globalMaterial}
-            />
-            <TechsDynamics atlasMaterial={globalMaterial} />
-            <ContactDynamics
-              atlasMaterial={globalMaterial}
-            />
-            <YouTubeDynamics
-              atlasMaterial={globalMaterial}
-            />
+          {/* Dynamics */}
+          <HomeDynamics atlasMaterial={globalMaterial} />
+          <ProjectDynamics atlasMaterial={globalMaterial} />
+          <TechsDynamics atlasMaterial={globalMaterial} />
+          <ContactDynamics atlasMaterial={globalMaterial} />
+          <YouTubeDynamics atlasMaterial={globalMaterial} />
 
-            {/* Basic */}
-            <PlaneSecctionPhysics />
-            {/* <OrbitControls
+          {/* Basic */}
+          <PlaneSecctionPhysics />
+          {/* <OrbitControls
             enableDamping={true}
             enablePan={true}
           /> */}
-          </Debug>
+          {/* </Debug> */}
         </Physics>
 
         <Lights />

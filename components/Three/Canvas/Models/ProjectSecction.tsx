@@ -118,7 +118,14 @@ export function ProjectSecction({
           position={[21.53, 3.53104, -4.23]}
           rotation={[0, 0.61, 0]}>
           <HtmlDrei transform={true}>
-            <div className='border_rounded_btn'></div>
+            <div
+              className='border_rounded_btn'
+              onClick={() =>
+                window.open(
+                  "https://github.com/SirJohn72-script/DronesCustimizationSystem",
+                  "_blank"
+                )
+              }></div>
           </HtmlDrei>
         </mesh>
         <mesh
@@ -128,7 +135,14 @@ export function ProjectSecction({
           position={[27.13, 3.53104, -4.65]}
           rotation={[0, 0, 0]}>
           <HtmlDrei transform={true}>
-            <div className='border_rounded_btn'></div>
+            <div
+              className='border_rounded_btn'
+              onClick={() =>
+                window.open(
+                  "https://github.com/SirJohn72-script/DronesCustimizationSystem",
+                  "_blank"
+                )
+              }></div>
           </HtmlDrei>
         </mesh>
         <mesh
@@ -138,7 +152,14 @@ export function ProjectSecction({
           position={[32.77, 3.53104, -4.54]}
           rotation={[0, -0.61, 0]}>
           <HtmlDrei transform={true}>
-            <div className='border_rounded_btn'></div>
+            <div
+              className='border_rounded_btn'
+              onClick={() =>
+                window.open(
+                  "https://github.com/SirJohn72-script/noche_estrellas_web",
+                  "_blank"
+                )
+              }></div>
           </HtmlDrei>
         </mesh>
         <mesh
