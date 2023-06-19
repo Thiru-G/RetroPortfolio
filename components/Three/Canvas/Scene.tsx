@@ -103,8 +103,8 @@ export default function Scene() {
             {/* <ProjectsStatics /> */}
             {/* <TechsStatics /> */}
             <GeneralStatics />
-            {/* <ContactStatic /> */}
-            {/* <YouTubeStatic /> */}
+            <ContactStatic />
+            <YouTubeStatic />
 
             {/* Dynamics */}
             <HomeDynamics atlasMaterial={globalMaterial} />

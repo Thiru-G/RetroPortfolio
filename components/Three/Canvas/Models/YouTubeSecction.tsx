@@ -49,7 +49,7 @@ export function YouTubeSecction({
     rocketRef.current.rotation.y =
       clock.getElapsedTime() / 8;
     rocketRef.current.position.y =
-      4.5 + Math.sin(clock.getElapsedTime() * 2) / 8;
+      3.5 + Math.sin(clock.getElapsedTime() * 2) / 8;
     rocketRef.current.rotation.z =
       Math.sin(clock.getElapsedTime()) / 16;
   });
