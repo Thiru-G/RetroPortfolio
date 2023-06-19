@@ -11,10 +11,12 @@ import {
 import { GLTF } from "three-stdlib";
 import clsx from "clsx";
 
-const bulbMaterial = new THREE.MeshBasicMaterial({
+const bulbMaterial = new THREE.MeshStandardMaterial({
   color: 0x000000,
   opacity: 0.3,
   transparent: true,
+  roughness: 0,
+  metalness: 0,
 });
 
 type GLTFResult = GLTF & {
