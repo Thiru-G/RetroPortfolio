@@ -40,10 +40,27 @@ export const useLoaderScene = create<useLoaderSceneType>(
       set((state) => ({
         isSceneLoaded: value,
       })),
-    setHideLoader: (value: boolean) =>
+    setHideLoader: (value: boolean) => {
       set((state) => ({
         hideLoader: value,
-      })),
+      }));
+      const threeDixiesLabels =
+        document.getElementsByClassName(
+          "three-dixie-clock"
+        );
+      setTimeout(() => {
+        Array.from(threeDixiesLabels).forEach((label) => {
+          if (
+            label.classList.contains("text-glow-animation")
+          ) {
+            label.classList.add("text-glow--blinking");
+          }
+          label.classList.remove("three-label--hidden");
+          label.classList.add("three-label--block");
+        });
+      }, 1000);
+    },
+
     setPlayMusic: (value: boolean) =>
       set((state) => ({ playMusic: true })),
   })

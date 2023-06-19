@@ -35,7 +35,7 @@ export default function Loader() {
       id='three-loader'
       ref={loaderContainer}
       className={clsx(
-        "fixed top-0 left-0",
+        "absolute top-0 left-0",
         "w-[100%] h-[100vh] bg-grey-1000 z-50",
         "flex justify-center items-center flex-col gap-6"
       )}>
@@ -82,7 +82,8 @@ export default function Loader() {
           <PrimaryButton
             key={1}
             event={() => {
-              setHideLoader(true), setPlayMusic(true);
+              setHideLoader(true);
+              // setPlayMusic(true);
             }}>
             Enter
           </PrimaryButton>

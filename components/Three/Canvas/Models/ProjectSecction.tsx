@@ -1,24 +1,29 @@
 import * as THREE from "three";
 import React from "react";
-import { useGLTF } from "@react-three/drei";
+import {
+  useGLTF,
+  Html as HtmlDrei,
+} from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { AtlasMaterial } from "../Types/Three_Types";
 
 type GLTFResult = GLTF & {
   nodes: {
-    postip_projects: THREE.Mesh;
     atari_box: THREE.Mesh;
     dkong_platform: THREE.Mesh;
     dkong_stairs: THREE.Mesh;
     nin_items: THREE.Mesh;
-    game_cartigres_box: THREE.Mesh;
     nin_items001: THREE.Mesh;
     nin_items002: THREE.Mesh;
+    game_cartigres_box: THREE.Mesh;
     game_cartigres_covers: THREE.Mesh;
+    project_1_label: THREE.Mesh;
+    project_2_label: THREE.Mesh;
+    project_3_label: THREE.Mesh;
     little_barrels: THREE.Mesh;
   };
   materials: {
-    postips: THREE.MeshStandardMaterial;
+    Atlas_Texture: THREE.MeshStandardMaterial;
     Cartigres: THREE.MeshStandardMaterial;
   };
 };
@@ -33,15 +38,6 @@ export function ProjectSecction({
   return (
     <group dispose={null}>
       <group name='Scene'>
-        <mesh
-          name='postip_projects'
-          castShadow
-          receiveShadow
-          geometry={nodes.postip_projects.geometry}
-          material={materials.postips}
-          position={[26.37, 4.8, -5.65]}
-          rotation={[0.14, 0.09, 0.02]}
-        />
         <mesh
           name='atari_box'
           castShadow
@@ -80,15 +76,6 @@ export function ProjectSecction({
           scale={0.33}
         />
         <mesh
-          name='game_cartigres_box'
-          castShadow
-          receiveShadow
-          geometry={nodes.game_cartigres_box.geometry}
-          material={atlasMaterial}
-          position={[27.67, 5.01, -6.06]}
-          rotation={[Math.PI / 2, 0, 1.92]}
-        />
-        <mesh
           name='nin_items001'
           castShadow
           receiveShadow
@@ -107,6 +94,15 @@ export function ProjectSecction({
           scale={0.33}
         />
         <mesh
+          name='game_cartigres_box'
+          castShadow
+          receiveShadow
+          geometry={nodes.game_cartigres_box.geometry}
+          material={atlasMaterial}
+          position={[27.67, 5.01, -6.06]}
+          rotation={[Math.PI / 2, 0, 1.92]}
+        />
+        <mesh
           name='game_cartigres_covers'
           castShadow
           receiveShadow
@@ -115,6 +111,36 @@ export function ProjectSecction({
           position={[27.67, 5.01, -6.06]}
           rotation={[Math.PI / 2, 0, 1.92]}
         />
+        <mesh
+          name='project_1_label'
+          castShadow
+          receiveShadow
+          position={[21.53, 3.53104, -4.23]}
+          rotation={[0, 0.61, 0]}>
+          <HtmlDrei transform={true}>
+            <div className='border_rounded_btn'></div>
+          </HtmlDrei>
+        </mesh>
+        <mesh
+          name='project_2_label'
+          castShadow
+          receiveShadow
+          position={[27.13, 3.53104, -4.65]}
+          rotation={[0, 0, 0]}>
+          <HtmlDrei transform={true}>
+            <div className='border_rounded_btn'></div>
+          </HtmlDrei>
+        </mesh>
+        <mesh
+          name='project_3_label'
+          castShadow
+          receiveShadow
+          position={[32.77, 3.53104, -4.54]}
+          rotation={[0, -0.61, 0]}>
+          <HtmlDrei transform={true}>
+            <div className='border_rounded_btn'></div>
+          </HtmlDrei>
+        </mesh>
         <mesh
           name='little_barrels'
           castShadow

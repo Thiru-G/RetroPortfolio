@@ -22,7 +22,7 @@ export function YouTubeDynamics({
       id='youtube'
       args={[2, 2, 2]}
       scale={[1, 1, 1]}
-      position={[77.15, 0.99, 9.56]}
+      position={[80.9658, 0.99, 11.5982]}
       rotation={[0, 0.38, 0]}
       mass={1}
       type='Dynamic'>

@@ -1,19 +1,25 @@
 import * as THREE from "three";
-import React from "react";
-import { useGLTF } from "@react-three/drei";
+import React, { useRef } from "react";
+import {
+  useGLTF,
+  Html as HtmlDrei,
+} from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
 import { AtlasMaterial } from "../Types/Three_Types";
 
 type GLTFResult = GLTF & {
   nodes: {
     Button: THREE.Mesh;
-    Plane111: THREE.Mesh;
+    PostTip: THREE.Mesh;
     Teapot: THREE.Mesh;
     Star: THREE.Mesh;
-    Suzanne: THREE.Mesh;
-    Plane118: THREE.Mesh;
+    ButtonBase: THREE.Mesh;
+    T65: THREE.Mesh;
+    Rocket: THREE.Mesh;
   };
   materials: {
+    Material: THREE.MeshStandardMaterial;
     postips: THREE.MeshStandardMaterial;
     Atlas_Texture: THREE.MeshStandardMaterial;
   };
@@ -27,6 +33,26 @@ export function YouTubeSecction({
   ) as GLTFResult;
 
   const [hovered, setHover] = React.useState(false);
+  const t65Ref = useRef<any>();
+  const rocketRef = useRef<any>();
+
+  useFrame(({ clock }) => {
+    // T65 ship
+    t65Ref.current.position.y =
+      1.13 + Math.sin(clock.getElapsedTime()) / 8;
+    t65Ref.current.rotation.x =
+      Math.sin(clock.getElapsedTime()) / 24;
+    t65Ref.current.rotation.z =
+      Math.sin(clock.getElapsedTime()) / 24;
+
+    // Rocket Ref
+    rocketRef.current.rotation.y =
+      clock.getElapsedTime() / 8;
+    rocketRef.current.position.y =
+      4.5 + Math.sin(clock.getElapsedTime() * 2) / 8;
+    rocketRef.current.rotation.z =
+      Math.sin(clock.getElapsedTime()) / 16;
+  });
 
   return (
     <group dispose={null}>
@@ -36,8 +62,6 @@ export function YouTubeSecction({
           castShadow
           receiveShadow
           geometry={nodes.Button.geometry}
-          position={[73.09, 0.79, 10.75]}
-          scale={0.76}
           onClick={() => {
             window.open(
               "https://www.youtube.com/c/JohnScript72",
@@ -56,14 +80,25 @@ export function YouTubeSecction({
             color={hovered ? "orange" : "red"}
           />
         </mesh>
+        <mesh position={[73.177, 2.04744, 10.7587]}>
+          <HtmlDrei transform occlude>
+            <div
+              className='border_rounded_btn'
+              onClick={() => {
+                window.open(
+                  "https://www.youtube.com/c/JohnScript72",
+                  "_blank"
+                );
+              }}></div>
+          </HtmlDrei>
+        </mesh>
+
         <mesh
-          name='Plane111'
+          name='PostTip'
           castShadow
           receiveShadow
-          geometry={nodes.Plane111.geometry}
+          geometry={nodes.PostTip.geometry}
           material={materials.postips}
-          position={[86.5, 1.72, -6.2]}
-          rotation={[0.14, 0.09, 0.02]}
         />
         <mesh
           name='Teapot'
@@ -71,7 +106,6 @@ export function YouTubeSecction({
           receiveShadow
           geometry={nodes.Teapot.geometry}
           material={atlasMaterial}
-          position={[72.19, -0.03, 6.07]}
         />
         <mesh
           name='Star'
@@ -79,27 +113,32 @@ export function YouTubeSecction({
           receiveShadow
           geometry={nodes.Star.geometry}
           material={atlasMaterial}
-          position={[73.31, 0.82, 8.51]}
-          rotation={[Math.PI / 2, -0.3, 0]}
         />
         <mesh
-          name='Suzanne'
+          name='ButtonBase'
           castShadow
           receiveShadow
-          geometry={nodes.Suzanne.geometry}
+          geometry={nodes.ButtonBase.geometry}
           material={atlasMaterial}
-          position={[67.81, 1.28, 9.82]}
-          rotation={[-0.68, 0.49, 0.37]}
-          scale={2.35}
         />
         <mesh
-          name='Plane118'
+          name='T65'
           castShadow
           receiveShadow
-          geometry={nodes.Plane118.geometry}
+          ref={t65Ref}
+          geometry={nodes.T65.geometry}
           material={atlasMaterial}
-          position={[73.16, 0.57, 10.76]}
-          scale={1.29}
+          position={[66.73, 2, 9.62]}
+          rotation={[0, 1.05, 0]}
+        />
+        <mesh
+          name='Rocket'
+          ref={rocketRef}
+          castShadow
+          receiveShadow
+          geometry={nodes.Rocket.geometry}
+          material={atlasMaterial}
+          position={[77.23, 4.12, 10.04]}
         />
       </group>
     </group>

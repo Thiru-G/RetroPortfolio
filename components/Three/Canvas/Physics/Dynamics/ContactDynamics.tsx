@@ -1,6 +1,9 @@
 import * as THREE from "three";
 import React from "react";
-import { useGLTF } from "@react-three/drei";
+import {
+  useGLTF,
+  Html as HtmlDrei,
+} from "@react-three/drei";
 import { ThreeEvent } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
 import { CuboidColliderDynamic } from "../Utils/PhyshicsColliders";
@@ -60,6 +63,18 @@ export function ContactDynamics({
             geometry={nodes.LinkedIn.geometry}
             material={atlasMaterial}
           />
+          <mesh>
+            <HtmlDrei
+              position={[0, 2, 0]}
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/juanglezf/",
+                  "_blank"
+                )
+              }>
+              <div className='border_rounded_btn'></div>
+            </HtmlDrei>
+          </mesh>
         </group>
       </CuboidColliderDynamic>
 
@@ -89,6 +104,18 @@ export function ContactDynamics({
             geometry={nodes.GitHub.geometry}
             material={atlasMaterial}
           />
+          <mesh>
+            <HtmlDrei
+              position={[0, 2, 0]}
+              onClick={() =>
+                window.open(
+                  "https://github.com/SirJohn72-script",
+                  "_blank"
+                )
+              }>
+              <div className='border_rounded_btn'></div>
+            </HtmlDrei>
+          </mesh>
         </group>
       </CuboidColliderDynamic>
     </group>

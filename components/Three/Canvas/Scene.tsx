@@ -20,7 +20,7 @@ import { Wall } from "./Models/Wall";
 import { Physics, Debug } from "@react-three/cannon";
 import PlaneSecctionPhysics from "./Physics/Utils/PlaneSecctionPhysics";
 import HomeStatics from "./Physics/Statics/HomeStatics";
-import { HomeDynamics } from "./Physics/Dynamics/HomeDynamics";
+// import { HomeDynamics } from "./Physics/Dynamics/HomeDynamics";
 import { ProjectDynamics } from "./Physics/Dynamics/ProjectDynamics";
 import TechsStatics from "./Physics/Statics/TechsStatic";
 import GeneralStatics from "./Physics/Statics/GeneralStatics";
@@ -99,7 +99,7 @@ export default function Scene() {
           <Character />
 
           {/* Statics */}
-          <HomeStatics />
+          {/* <HomeStatics /> */}
           <ProjectsStatics />
           <TechsStatics />
           <GeneralStatics />
@@ -107,7 +107,7 @@ export default function Scene() {
           <YouTubeStatic />
 
           {/* Dynamics */}
-          <HomeDynamics atlasMaterial={globalMaterial} />
+          {/* <HomeDynamics atlasMaterial={globalMaterial} /> */}
           <ProjectDynamics atlasMaterial={globalMaterial} />
           <TechsDynamics atlasMaterial={globalMaterial} />
           <ContactDynamics atlasMaterial={globalMaterial} />
@@ -116,9 +116,9 @@ export default function Scene() {
           {/* Basic */}
           <PlaneSecctionPhysics />
           {/* <OrbitControls
-              enableDamping={true}
-              enablePan={true}
-            /> */}
+            enableDamping={true}
+            enablePan={true}
+          /> */}
           {/* </Debug> */}
         </Physics>
 
