@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
 import {
   CylinderCollider,
@@ -29,6 +30,34 @@ export function TechsDynamics({
   const { nodes, materials } = useGLTF(
     "/models/TechsSecctionDynamic.glb"
   ) as GLTFResult;
+
+  const ghost1Ref = useRef<any>();
+  const ghost2Ref = useRef<any>();
+  const ghost3Ref = useRef<any>();
+  const ghost4Ref = useRef<any>();
+
+  useFrame(({ clock }) => {
+    ghost1Ref.current.position.y =
+      Math.sin(clock.getElapsedTime() + 1) / 8;
+    ghost1Ref.current.rotation.y =
+      Math.sin(clock.getElapsedTime() + 1) / 8;
+
+    ghost2Ref.current.position.y =
+      Math.sin(clock.getElapsedTime() + 2) / 8;
+    ghost2Ref.current.rotation.y =
+      Math.sin(clock.getElapsedTime() + 2) / 8;
+
+    ghost3Ref.current.position.y =
+      Math.sin(clock.getElapsedTime() + 3) / 8;
+    ghost3Ref.current.rotation.y =
+      Math.sin(clock.getElapsedTime() + 3) / 8;
+
+    ghost4Ref.current.position.y =
+      Math.sin(clock.getElapsedTime() + 4) / 8;
+    ghost4Ref.current.rotation.y =
+      Math.sin(clock.getElapsedTime() + 4) / 8;
+  });
+
   return (
     <group dispose={null}>
       <CylinderCollider
@@ -45,6 +74,7 @@ export function TechsDynamics({
           // rotation={[0, 0.59, 0]}
         >
           <mesh
+            ref={ghost1Ref}
             name='ghost_1'
             castShadow
             receiveShadow
@@ -64,6 +94,7 @@ export function TechsDynamics({
         type='Dynamic'>
         <group name='ghost_2'>
           <mesh
+            ref={ghost2Ref}
             name='ghost_2'
             castShadow
             receiveShadow
@@ -83,6 +114,7 @@ export function TechsDynamics({
         type='Dynamic'>
         <group name='ghost_3'>
           <mesh
+            ref={ghost3Ref}
             name='ghost_3'
             castShadow
             receiveShadow
@@ -100,7 +132,7 @@ export function TechsDynamics({
         rotation={[0, -0.51, 0]}
         mass={1}
         type='Dynamic'>
-        <group name='ghost_4'>
+        <group name='ghost_4' ref={ghost4Ref}>
           <mesh
             name='ghost_4'
             castShadow
