@@ -36,6 +36,11 @@ import {
   OrbitControls,
 } from "@react-three/drei";
 import { LoadTexture } from "./Utils/LoadTextures";
+import {
+  EffectComposer,
+  Vignette,
+  DepthOfField,
+} from "@react-three/postprocessing";
 
 export default function Scene() {
   const { setSceneLoaded } = useLoaderScene(
@@ -123,6 +128,20 @@ export default function Scene() {
           {/* </Debug> */}
         </Physics>
 
+        {/* Postprocessing */}
+        <EffectComposer>
+          <DepthOfField
+            focusDistance={0}
+            focalLength={0.035}
+            bokehScale={1.7}
+            height={480}
+          />
+          <Vignette
+            eskil={false}
+            offset={0.05}
+            darkness={0.8}
+          />
+        </EffectComposer>
         <Lights />
       </Canvas>
       {/* <PlayerSound /> */}
