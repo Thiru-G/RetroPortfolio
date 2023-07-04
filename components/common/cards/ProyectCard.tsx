@@ -21,7 +21,11 @@ export default function ProyectCard({
   linkTo,
 }: ProyectCardProps) {
   return (
-    <div className={clsx("w-full", "flex flex-col gap-4")}>
+    <div
+      className={clsx(
+        "w-full",
+        "flex flex-col gap-4"
+      )}>
       <div
         className={clsx(
           "image_project",

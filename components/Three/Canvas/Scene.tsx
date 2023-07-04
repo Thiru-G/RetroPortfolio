@@ -1,8 +1,4 @@
-import React, {
-  useEffect,
-  Suspense,
-  useState,
-} from "react";
+import React, { useEffect, Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 import Camera from "./Camera/Camera";
@@ -31,26 +27,14 @@ import { ContactDynamics } from "./Physics/Dynamics/ContactDynamics";
 import YouTubeStatic from "./Physics/Statics/YouTubeStatic";
 import { YouTubeDynamics } from "./Physics/Dynamics/YouTubeDynamics";
 import { useLoaderScene } from "../Store/ThreeState";
-import {
-  ContactShadows,
-  OrbitControls,
-} from "@react-three/drei";
+import { ContactShadows, OrbitControls } from "@react-three/drei";
 import { LoadTexture } from "./Utils/LoadTextures";
-import {
-  EffectComposer,
-  Vignette,
-  DepthOfField,
-} from "@react-three/postprocessing";
+import { EffectComposer, Vignette, DepthOfField } from "@react-three/postprocessing";
 
 export default function Scene() {
-  const { setSceneLoaded } = useLoaderScene(
-    (state) => state
-  );
+  const { setSceneLoaded } = useLoaderScene((state) => state);
 
-  const [globalMaterial, setGlobalMaterial] =
-    useState<THREE.MeshStandardMaterial>(
-      new THREE.MeshStandardMaterial()
-    );
+  const [globalMaterial, setGlobalMaterial] = useState<THREE.MeshStandardMaterial>(new THREE.MeshStandardMaterial());
 
   useEffect(() => {
     LoadTexture("./textures/Atlas_Fall.jpg")
@@ -68,11 +52,7 @@ export default function Scene() {
 
   return (
     <>
-      <Canvas
-        frameloop='demand'
-        shadows
-        gl={{ powerPreference: "high-performance" }}
-        dpr={1}>
+      <Canvas frameloop='demand' shadows gl={{ powerPreference: "high-performance" }} dpr={1}>
         {/* <ContactShadows
           width={100}
           height={100}
@@ -130,17 +110,12 @@ export default function Scene() {
 
         {/* Postprocessing */}
         <EffectComposer>
-          <DepthOfField
-            focusDistance={0}
-            focalLength={0.035}
-            bokehScale={1.7}
-            height={480}
-          />
-          <Vignette
+          <DepthOfField focusDistance={0} focalLength={0.035} bokehScale={1.7} height={480} />
+          {/* <Vignette
             eskil={false}
             offset={0.05}
             darkness={0.8}
-          />
+          /> */}
         </EffectComposer>
         <Lights />
       </Canvas>

@@ -10,12 +10,7 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
  * @param right boolean
  * @returns the required angle to align the cameras'view with the model's view
  */
-export const GetDirecctionOffset = (
-  foward: boolean,
-  backward: boolean,
-  left: boolean,
-  right: boolean
-): number => {
+export const GetDirecctionOffset = (foward: boolean, backward: boolean, left: boolean, right: boolean): number => {
   let directionOffset = 0;
 
   if (foward) {
@@ -43,7 +38,9 @@ export const GetDirecctionOffset = (
     directionOffset = Math.PI / 2; // a
   }
 
-  return directionOffset;
+  // ** previous
+  // return directionOffset
+  return directionOffset - Math.PI / 6;
 };
 
 /**
@@ -75,11 +72,7 @@ export const UpdateCameraTarget = (
     controlsRef.current.target = CAMERA_TARGET;
   }
   if (lightRef.current) {
-    lightRef.current.position.set(
-      CAMERA_TARGET.x,
-      12,
-      CAMERA_TARGET.z
-    );
+    lightRef.current.position.set(CAMERA_TARGET.x, 12, CAMERA_TARGET.z);
     lightRef.current.rotation.y = Math.PI * -0.5;
   }
 };
@@ -104,24 +97,13 @@ export const MoveModel = (
             the model view, the objetive of this code, is get the 
             angle to align the model's view and the camera's view
         */
-  let angleYCameraDirection = Math.atan2(
-    camera.position.x - model.position.x,
-    camera.position.z - model.position.z
-  );
+  let angleYCameraDirection = Math.atan2(camera.position.x - model.position.x, camera.position.z - model.position.z);
 
   // offset model
-  let offsetAngle = GetDirecctionOffset(
-    foward,
-    backward,
-    left,
-    right
-  );
+  let offsetAngle = GetDirecctionOffset(foward, backward, left, right);
 
   //rotate model
-  ROTATE_QUATERNION.setFromAxisAngle(
-    ROTATE_ANGLE,
-    angleYCameraDirection + offsetAngle
-  );
+  ROTATE_QUATERNION.setFromAxisAngle(ROTATE_ANGLE, angleYCameraDirection + offsetAngle);
   model.quaternion.rotateTowards(ROTATE_QUATERNION, 0.2);
 
   // calculate direcction
@@ -131,8 +113,7 @@ export const MoveModel = (
   WALK_DIRECCTION.applyAxisAngle(ROTATE_ANGLE, offsetAngle);
 
   // run/walk velocity
-  const VELOCITY =
-    currentAnimation.current === "Running" ? 12 : 5;
+  const VELOCITY = currentAnimation.current === "Running" ? 12 : 5;
 
   // apply the force to the model
 
@@ -156,24 +137,13 @@ export const RotateTheModel = (
   let ROTATE_ANGLE = new THREE.Vector3(0, 1, 0);
   let ROTATE_QUATERNION = new THREE.Quaternion();
 
-  let angleYCameraDirection = Math.atan2(
-    camera.position.x - model.position.x,
-    camera.position.z - model.position.z
-  );
+  let angleYCameraDirection = Math.atan2(camera.position.x - model.position.x, camera.position.z - model.position.z);
 
   // offset model
-  let offsetAngle = GetDirecctionOffset(
-    foward,
-    backward,
-    left,
-    right
-  );
+  let offsetAngle = GetDirecctionOffset(foward, backward, left, right);
 
   //rotate model
-  ROTATE_QUATERNION.setFromAxisAngle(
-    ROTATE_ANGLE,
-    angleYCameraDirection + offsetAngle
-  );
+  ROTATE_QUATERNION.setFromAxisAngle(ROTATE_ANGLE, angleYCameraDirection + offsetAngle);
   model.quaternion.rotateTowards(ROTATE_QUATERNION, 0.2);
 };
 

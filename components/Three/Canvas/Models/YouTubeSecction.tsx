@@ -1,9 +1,6 @@
 import * as THREE from "three";
 import React, { useRef } from "react";
-import {
-  useGLTF,
-  Html as HtmlDrei,
-} from "@react-three/drei";
+import { useGLTF, Html as HtmlDrei } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
 import { AtlasMaterial } from "../Types/Three_Types";
@@ -25,12 +22,8 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function YouTubeSecction({
-  atlasMaterial,
-}: AtlasMaterial) {
-  const { nodes, materials } = useGLTF(
-    "/models/YouTubeSecction.glb"
-  ) as GLTFResult;
+export function YouTubeSecction({ atlasMaterial }: AtlasMaterial) {
+  const { nodes, materials } = useGLTF("/models/YouTubeSecction.glb") as GLTFResult;
 
   const [hovered, setHover] = React.useState(false);
   const t65Ref = useRef<any>();
@@ -38,20 +31,14 @@ export function YouTubeSecction({
 
   useFrame(({ clock }) => {
     // T65 ship
-    t65Ref.current.position.y =
-      1.13 + Math.sin(clock.getElapsedTime()) / 8;
-    t65Ref.current.rotation.x =
-      Math.sin(clock.getElapsedTime()) / 24;
-    t65Ref.current.rotation.z =
-      Math.sin(clock.getElapsedTime()) / 24;
+    t65Ref.current.position.y = 1.13 + Math.sin(clock.getElapsedTime()) / 8;
+    t65Ref.current.rotation.x = Math.sin(clock.getElapsedTime()) / 24;
+    t65Ref.current.rotation.z = Math.sin(clock.getElapsedTime()) / 24;
 
     // Rocket Ref
-    rocketRef.current.rotation.y =
-      clock.getElapsedTime() / 8;
-    rocketRef.current.position.y =
-      3.5 + Math.sin(clock.getElapsedTime() * 2) / 8;
-    rocketRef.current.rotation.z =
-      Math.sin(clock.getElapsedTime()) / 16;
+    rocketRef.current.rotation.y = clock.getElapsedTime() / 8;
+    rocketRef.current.position.y = 3.5 + Math.sin(clock.getElapsedTime() * 2) / 8;
+    rocketRef.current.rotation.z = Math.sin(clock.getElapsedTime()) / 16;
   });
 
   return (
@@ -63,10 +50,7 @@ export function YouTubeSecction({
           receiveShadow
           geometry={nodes.Button.geometry}
           onClick={() => {
-            window.open(
-              "https://www.youtube.com/c/JohnScript72",
-              "_blank"
-            );
+            window.open("https://www.youtube.com/c/JohnScript72", "_blank");
           }}
           onPointerOver={(event) => {
             setHover(true);
@@ -76,44 +60,21 @@ export function YouTubeSecction({
             setHover(false);
             document.body.style.cursor = "default";
           }}>
-          <meshStandardMaterial
-            color={hovered ? "orange" : "red"}
-          />
+          <meshStandardMaterial color={hovered ? "orange" : "red"} />
         </mesh>
         <mesh position={[73.177, 2.04744, 10.7587]}>
           <HtmlDrei transform occlude>
             <div
               className='border_rounded_btn'
               onClick={() => {
-                window.open(
-                  "https://www.youtube.com/c/JohnScript72",
-                  "_blank"
-                );
+                window.open("https://www.youtube.com/c/JohnScript72", "_blank");
               }}></div>
           </HtmlDrei>
         </mesh>
 
-        <mesh
-          name='PostTip'
-          castShadow
-          receiveShadow
-          geometry={nodes.PostTip.geometry}
-          material={materials.postips}
-        />
-        <mesh
-          name='Teapot'
-          castShadow
-          receiveShadow
-          geometry={nodes.Teapot.geometry}
-          material={atlasMaterial}
-        />
-        <mesh
-          name='Star'
-          castShadow
-          receiveShadow
-          geometry={nodes.Star.geometry}
-          material={atlasMaterial}
-        />
+        <mesh name='PostTip' castShadow receiveShadow geometry={nodes.PostTip.geometry} material={materials.postips} />
+        <mesh name='Teapot' castShadow receiveShadow geometry={nodes.Teapot.geometry} material={atlasMaterial} />
+        <mesh name='Star' castShadow receiveShadow geometry={nodes.Star.geometry} material={atlasMaterial} />
         <mesh
           name='ButtonBase'
           castShadow

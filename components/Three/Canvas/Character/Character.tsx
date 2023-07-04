@@ -1,18 +1,10 @@
 import React, { useEffect, useRef } from "react";
 
 import * as THREE from "three";
-import {
-  useAnimations,
-  useGLTF,
-  OrbitControls,
-} from "@react-three/drei";
+import { useAnimations, useGLTF, OrbitControls } from "@react-three/drei";
 import { useInput } from "./useInput";
 import { useFrame, useThree } from "@react-three/fiber";
-import {
-  MoveModel,
-  RotateTheModel,
-  UpdateCameraTarget,
-} from "./GetDirecctionOfffset";
+import { MoveModel, RotateTheModel, UpdateCameraTarget } from "./GetDirecctionOfffset";
 import { useSphere } from "@react-three/cannon";
 
 // Sound
@@ -22,22 +14,14 @@ export default function Character() {
   // Model data
   const model = useGLTF("./models/RobotExpressive.glb");
   model.scene.scale.set(0.5, 0.5, 0.5);
-  const { actions } = useAnimations(
-    model.animations,
-    model.scene
-  );
+  const { actions } = useAnimations(model.animations, model.scene);
 
   // global state
-  const { isIdle, setIsIdle } = usePlayerSound(
-    (state) => state
-  );
+  const { isIdle, setIsIdle } = usePlayerSound((state) => state);
 
   // Model movement
-  const { foward, backward, left, right, shift, jump } =
-    useInput();
-  const controlsRef = useRef<
-    typeof OrbitControls | undefined
-  >() as any;
+  const { foward, backward, left, right, shift, jump } = useInput();
+  const controlsRef = useRef<typeof OrbitControls | undefined>() as any;
   const camera = useThree((state) => state.camera);
 
   // Lights
@@ -47,20 +31,18 @@ export default function Character() {
   const currentAnimation = useRef("");
 
   // Physcis
-  const [spherePlayer, spherePlayerAPI] = useSphere<any>(
-    () => ({
-      args: [1],
-      mass: 1,
-      position: [0, 1, 0],
-      onCollide(e) {
-        // if (
-        //   playerSound.currentTime === playerSound.duration
-        // ) {
-        //   playerSound.play();
-        // }
-      },
-    })
-  );
+  const [spherePlayer, spherePlayerAPI] = useSphere<any>(() => ({
+    args: [1],
+    mass: 1,
+    position: [0, 1, 0],
+    onCollide(e) {
+      // if (
+      //   playerSound.currentTime === playerSound.duration
+      // ) {
+      //   playerSound.play();
+      // }
+    },
+  }));
 
   useEffect(() => {
     let action = "";
@@ -104,7 +86,11 @@ export default function Character() {
       controlsRef.current.target.y = 2;
       controlsRef.current.target.z = v[2];
 
-      camera.position.x = v[0];
+      // THIS IS THE PART TO CHANGE
+      // camera.position.x = v[0];
+      // camera.position.z = v[2] + 20;
+
+      camera.position.x = v[0] + 12;
       camera.position.z = v[2] + 20;
 
       spotLightRef.current.position.x = v[0];
@@ -118,74 +104,51 @@ export default function Character() {
   }, [foward, backward, left, right, shift, jump]);
 
   useFrame((state, delta) => {
-    if (
-      currentAnimation.current === "Running" ||
-      currentAnimation.current === "Walking"
-    ) {
+    if (currentAnimation.current === "Running" || currentAnimation.current === "Walking") {
       setIsIdle(false);
 
       // Move the sphere
       spherePlayerAPI.linearFactor.set(1, 0, 1);
       spherePlayerAPI.velocity.set(0, 0, 0);
 
-      const FORCE =
-        currentAnimation.current === "Running" ? 120 : 50;
+      const FORCE = currentAnimation.current === "Running" ? 120 : 50;
 
       if (foward) {
-        spherePlayerAPI.applyForce(
-          [0, 0, -FORCE * 2],
-          [0, 0, 0]
-        );
+        spherePlayerAPI.applyForce([0, 0, -FORCE * 2], [0, 0, 0]);
         if (left) {
-          spherePlayerAPI.applyForce(
-            [-FORCE, 0, -FORCE / 4],
-            [0, 0, 0]
-          );
+          // w + a
+          // spherePlayerAPI.applyForce([ -FORCE, 0, FORCE * 0.5 ], [ 0, 0, 0 ]);
+          spherePlayerAPI.applyForce([-1.5 * FORCE, 0, FORCE * 0.25], [0, 0, 0]);
         }
+        // w + d
         if (right) {
-          spherePlayerAPI.applyForce(
-            [FORCE, 0, -FORCE / 4],
-            [0, 0, 0]
-          );
+          spherePlayerAPI.applyForce([1.5 * FORCE, 0, FORCE * 0.25], [0, 0, 0]);
+
+          // spherePlayerAPI.applyForce([FORCE, 0, FORCE * -0.5], [0, 0, 0]);
         }
       } else if (backward) {
-        spherePlayerAPI.applyForce(
-          [0, 0, FORCE * 2],
-          [0, 0, 0]
-        );
+        // s
+        spherePlayerAPI.applyForce([0, 0, FORCE * 2], [0, 0, 0]);
 
         if (backward && left) {
-          spherePlayerAPI.applyForce(
-            [-FORCE, 0, FORCE / 4],
-            [0, 0, 0]
-          );
+          // s + a
+          // spherePlayerAPI.applyForce([ -FORCE, 0, FORCE * 0.5 ], [ 0, 0, 0 ]);
+          spherePlayerAPI.applyForce([-1.5 * FORCE, 0, FORCE * -0.5], [0, 0, 0]);
         }
         if (backward && right) {
-          spherePlayerAPI.applyForce(
-            [FORCE, 0, FORCE / 4],
-            [0, 0, 0]
-          );
+          // s + d
+          spherePlayerAPI.applyForce([1.5 * FORCE, 0, FORCE * -0.25], [0, 0, 0]);
+          // spherePlayerAPI.applyForce([FORCE, 0, FORCE * -0.5], [0, 0, 0]);
         }
       } else if (left) {
-        spherePlayerAPI.applyForce(
-          [-FORCE * 2, 0, 0],
-          [0, 0, 0]
-        );
+        // d
+        spherePlayerAPI.applyForce([-FORCE * 2, 0, 0], [0, 0, 0]);
       } else if (right) {
-        spherePlayerAPI.applyForce(
-          [FORCE * 2, 0, 0],
-          [0, 0, 0]
-        );
+        // a
+        spherePlayerAPI.applyForce([FORCE * 2, 0, 0], [0, 0, 0]);
       }
 
-      RotateTheModel(
-        camera,
-        model.scene,
-        foward,
-        backward,
-        left,
-        right
-      );
+      RotateTheModel(camera, model.scene, foward, backward, left, right);
     } else {
       setIsIdle(true);
     }
@@ -213,18 +176,9 @@ export default function Character() {
         power={9}
       />
 
-      <mesh
-        position={[0, 2, 0]}
-        ref={spherePlayer}
-        castShadow={false}
-        receiveShadow={false}
-        visible={false}>
+      <mesh position={[0, 2, 0]} ref={spherePlayer} castShadow={false} receiveShadow={false} visible={false}>
         <sphereGeometry args={[1, 16, 15]} />
-        <meshBasicMaterial
-          color={0xff00ff}
-          transparent
-          opacity={0}
-        />
+        <meshBasicMaterial color={0xff00ff} transparent opacity={0} />
       </mesh>
 
       <primitive object={model.scene} dispose={null} />
