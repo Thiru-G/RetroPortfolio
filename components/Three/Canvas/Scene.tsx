@@ -109,14 +109,14 @@ export default function Scene() {
         </Physics>
 
         {/* Postprocessing */}
-        <EffectComposer>
+        {/* <EffectComposer>
           <DepthOfField focusDistance={0} focalLength={0.035} bokehScale={1.7} height={480} />
-          {/* <Vignette
+           <Vignette
             eskil={false}
             offset={0.05}
             darkness={0.8}
-          /> */}
-        </EffectComposer>
+          /> 
+        </EffectComposer> */}
         <Lights />
       </Canvas>
       {/* <PlayerSound /> */}

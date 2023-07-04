@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 
 import * as THREE from "three";
-import { useAnimations, useGLTF, OrbitControls } from "@react-three/drei";
+import { useAnimations, useGLTF, OrbitControls, useHelper } from "@react-three/drei";
 import { useInput } from "./useInput";
 import { useFrame, useThree } from "@react-three/fiber";
+import { SpotLightHelper } from "three";
 import { MoveModel, RotateTheModel, UpdateCameraTarget } from "./GetDirecctionOfffset";
 import { useSphere } from "@react-three/cannon";
 
@@ -154,6 +155,8 @@ export default function Character() {
     }
   });
 
+  // useHelper(spotLightRef, SpotLightHelper, 0.5);
+
   return (
     <>
       <OrbitControls
@@ -168,12 +171,15 @@ export default function Character() {
         castShadow
         ref={spotLightRef}
         color={"#E3C65E"}
-        position={[0, 8, 0]}
-        angle={(70 * Math.PI) / 180}
+        position={[0, 20, 0]}
+        angle={(50 * Math.PI) / 180}
         target={model.scene}
-        penumbra={0.8}
+        penumbra={0.2}
         shadow-bias={-0.009}
-        power={9}
+        power={1}
+        intensity={8}
+        distance={12}
+        decay={1}
       />
 
       <mesh position={[0, 2, 0]} ref={spherePlayer} castShadow={false} receiveShadow={false} visible={false}>
