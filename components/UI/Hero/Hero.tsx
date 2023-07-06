@@ -9,19 +9,10 @@ import { useState, useEffect } from "react";
 import AnimatedImage from "@/components/common/images/AnimatedImage";
 
 export default function Hero() {
-  const [HeroImages, setHeroImages] = useState<Array<React.ReactNode>>([]);
-  const [CurrentHero, setCurrentHero] = useState<React.ReactNode | null>();
+  const [HeroImages, setHeroImages] = useState<Array<string>>([]);
+  const [CurrentHeroIndex, setCurrentHeroIndex] = useState<number>(0);
 
   useEffect(() => {
-    const loadImage = (imagePath: string): Promise<React.ReactNode> => {
-      return new Promise((resolve, reject) => {
-        const image = new window.Image();
-        image.src = imagePath;
-        image.onload = () => resolve(<AnimatedImage image={imagePath} />);
-        image.onerror = reject;
-      });
-    };
-
     const loadAllImages = async () => {
       const imagesPromises = [];
       for (let i = 1; i < 61; i++) {
@@ -44,19 +35,23 @@ export default function Hero() {
       return; // Espera hasta que todas las imágenes estén cargadas
     }
 
-    let currentIndex = 0;
-
-    const updateCurrentHero = () => {
-      setCurrentHero(HeroImages[currentIndex]);
-      currentIndex = (currentIndex + 1) % HeroImages.length;
-    };
-
-    const intervalId = setInterval(updateCurrentHero, 60);
+    const intervalId = setInterval(() => {
+      setCurrentHeroIndex((prevIndex) => (prevIndex + 1) % HeroImages.length);
+    }, 60);
 
     return () => {
       clearInterval(intervalId);
     };
   }, [HeroImages]);
+
+  const loadImage = (imagePath: string): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const image = new window.Image();
+      image.onload = () => resolve(imagePath);
+      image.onerror = reject;
+      image.src = imagePath;
+    });
+  };
 
   return (
     <ConsoleSecction id='hero' border={true} icon={<AiOutlineHome />} branch='Home'>
@@ -87,7 +82,26 @@ export default function Hero() {
         </div>
 
         <div id='hero_image' className={clsx("md:w-[40%] lg:w-[50%] w-[100%]", "flex justify-center")}>
-          <div className={clsx("w-[100%] flex justify-center", "p-6")}>{CurrentHero}</div>
+          <div
+            className={clsx(
+              "w-[100%] h-[350px] flex justify-center",
+              "p-6",
+              "relative"
+              // "border-[1px] border-blue-900"
+            )}>
+            {HeroImages.map((image, index) => (
+              <div
+                key={index}
+                id={`index-${index + 1}`}
+                className={clsx(
+                  index === CurrentHeroIndex ? "block" : "hidden",
+                  "absolute top-0 left-0",
+                  "w-[100%] h-[350px]"
+                )}>
+                {<AnimatedImage image={image} />}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </ConsoleSecction>

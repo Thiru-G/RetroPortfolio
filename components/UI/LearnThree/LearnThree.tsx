@@ -82,7 +82,7 @@ export default function LearnThree() {
           </div>
         </div>
         <div className={clsx("md:w-[50%] h-[350px]", "w-[100%]")}>
-          <div className={clsx("w-[100%] h-[100%]")}>{CurrentHero}</div>
+          <div className={clsx("w-[100%] h-[100%]")}>{}</div>
         </div>
       </div>
     </ConsoleSecction>
