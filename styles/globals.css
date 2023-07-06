@@ -153,3 +153,11 @@
 
 .border_rounded_btn--n {
 }
+
+.svg_edges svg {
+  shape-rendering: crispEdges;
+}
+
+.svg_edges svg path {
+  fill: yellow;
+}
