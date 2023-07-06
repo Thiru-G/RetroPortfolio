@@ -16,7 +16,7 @@ export default function LearnThree() {
   useEffect(() => {
     const loadAllImages = async () => {
       const imagesPromises = [];
-      for (let i = 1; i < 61; i++) {
+      for (let i = 1; i < 61; i += 2) {
         const imagePath = `/images/rocket/${i < 10 ? "000" : "00"}${i}.svg`;
         imagesPromises.push(loadImage(imagePath));
       }
@@ -38,7 +38,7 @@ export default function LearnThree() {
 
     const intervalId = setInterval(() => {
       setCurrentHeroIndex((prevIndex) => (prevIndex + 1) % HeroImages.length);
-    }, 60);
+    }, 100);
 
     return () => {
       clearInterval(intervalId);

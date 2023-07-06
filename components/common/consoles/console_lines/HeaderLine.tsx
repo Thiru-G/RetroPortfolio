@@ -8,7 +8,7 @@ interface HeaderLineProps {
 
 export default function HeaderLine({ children }: HeaderLineProps) {
   return (
-    <div className={"flex font-700 text-[32px] font-main justify-start items-center items-baseline"}>
+    <div className={"flex font-700 text-[32px] font-main justify-start items-center"}>
       <div className={clsx("-ml-[10px] text-yellow-900 pr-[10px]")}>
         <MdKeyboardArrowRight />
       </div>
