@@ -10,32 +10,54 @@ import PrimaryButton from "@/components/common/buttons/PrimaryButton";
 import AnimatedImage from "@/components/common/images/AnimatedImage";
 
 export default function LearnThree() {
-  const HeroImages: Array<React.ReactNode> = [];
-  for (let i = 1; i < 61; i++) {
-    if (i < 10) {
-      HeroImages.push(<AnimatedImage image={`/images/rocket/000${i}.svg`} />);
-    } else {
-      HeroImages.push(<AnimatedImage image={`/images/rocket/00${i}.svg`} />);
-    }
-  }
-  const [CurrentHero, setCurrentHero] = useState<React.ReactNode>(HeroImages[0]);
+  const [HeroImages, setHeroImages] = useState<Array<React.ReactNode>>([]);
+  const [CurrentHero, setCurrentHero] = useState<React.ReactNode | null>();
 
   useEffect(() => {
+    const loadImage = (imagePath: string): Promise<React.ReactNode> => {
+      return new Promise((resolve, reject) => {
+        const image = new window.Image();
+        image.src = imagePath;
+        image.onload = () => resolve(<AnimatedImage image={imagePath} />);
+        image.onerror = reject;
+      });
+    };
+
+    const loadAllImages = async () => {
+      const imagesPromises = [];
+      for (let i = 1; i < 61; i++) {
+        const imagePath = `/images/rocket/${i < 10 ? "000" : "00"}${i}.svg`;
+        imagesPromises.push(loadImage(imagePath));
+      }
+      try {
+        const loadedImages = await Promise.all(imagesPromises);
+        setHeroImages(loadedImages);
+      } catch (error) {
+        console.error("Error loading images:", error);
+      }
+    };
+
+    loadAllImages();
+  }, []);
+
+  useEffect(() => {
+    if (HeroImages.length === 0) {
+      return; // Espera hasta que todas las imágenes estén cargadas
+    }
+
     let currentIndex = 0;
 
     const updateCurrentHero = () => {
-      setTimeout(() => {
-        setCurrentHero(HeroImages[currentIndex]);
-        currentIndex = (currentIndex + 1) % HeroImages.length;
-      }, 80);
+      setCurrentHero(HeroImages[currentIndex]);
+      currentIndex = (currentIndex + 1) % HeroImages.length;
     };
 
-    const intervalId = setInterval(updateCurrentHero, 80);
+    const intervalId = setInterval(updateCurrentHero, 60);
 
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [HeroImages]);
 
   return (
     <ConsoleSecction id='learn_three' border={true} icon={<Tb3DCubeSphere />} branch={"learn_three"}>
@@ -45,7 +67,7 @@ export default function LearnThree() {
           "flex md:flex-nowrap items-center justify-between gap-5 md:flex-row",
           "flex-col-reverse flex-wrap"
         )}>
-        <div className={clsx("md:w-[50%] flex flex-col gap-5 items-baseline", "w-full")}>
+        <div className={clsx("md:w-[50%] flex flex-col gap-5", "w-full")}>
           <HeaderLine>Wanna learn 3D in the web?</HeaderLine>
           <CommandLine label='show_info' command='cat' />
           <BodyLine>

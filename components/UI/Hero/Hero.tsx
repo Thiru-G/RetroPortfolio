@@ -9,26 +9,46 @@ import { useState, useEffect } from "react";
 import AnimatedImage from "@/components/common/images/AnimatedImage";
 
 export default function Hero() {
-  const router = useRouter();
-
-  const HeroImages: Array<React.ReactNode> = [];
-  for (let i = 1; i < 61; i++) {
-    if (i < 10) {
-      HeroImages.push(<AnimatedImage image={`/images/rocket/000${i}.svg`} />);
-    } else {
-      HeroImages.push(<AnimatedImage image={`/images/rocket/00${i}.svg`} />);
-    }
-  }
-  const [CurrentHero, setCurrentHero] = useState<React.ReactNode>(HeroImages[0]);
+  const [HeroImages, setHeroImages] = useState<Array<React.ReactNode>>([]);
+  const [CurrentHero, setCurrentHero] = useState<React.ReactNode | null>();
 
   useEffect(() => {
+    const loadImage = (imagePath: string): Promise<React.ReactNode> => {
+      return new Promise((resolve, reject) => {
+        const image = new window.Image();
+        image.src = imagePath;
+        image.onload = () => resolve(<AnimatedImage image={imagePath} />);
+        image.onerror = reject;
+      });
+    };
+
+    const loadAllImages = async () => {
+      const imagesPromises = [];
+      for (let i = 1; i < 61; i++) {
+        const imagePath = `/images/rocket/${i < 10 ? "000" : "00"}${i}.svg`;
+        imagesPromises.push(loadImage(imagePath));
+      }
+      try {
+        const loadedImages = await Promise.all(imagesPromises);
+        setHeroImages(loadedImages);
+      } catch (error) {
+        console.error("Error loading images:", error);
+      }
+    };
+
+    loadAllImages();
+  }, []);
+
+  useEffect(() => {
+    if (HeroImages.length === 0) {
+      return; // Espera hasta que todas las imágenes estén cargadas
+    }
+
     let currentIndex = 0;
 
     const updateCurrentHero = () => {
-      setTimeout(() => {
-        setCurrentHero(HeroImages[currentIndex]);
-        currentIndex = (currentIndex + 1) % HeroImages.length;
-      }, 60);
+      setCurrentHero(HeroImages[currentIndex]);
+      currentIndex = (currentIndex + 1) % HeroImages.length;
     };
 
     const intervalId = setInterval(updateCurrentHero, 60);
@@ -36,7 +56,7 @@ export default function Hero() {
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [HeroImages]);
 
   return (
     <ConsoleSecction id='hero' border={true} icon={<AiOutlineHome />} branch='Home'>
@@ -52,7 +72,7 @@ export default function Hero() {
           className={clsx(
             "w-full flex flex-col gap-2",
             "z-50",
-            "md:w-[60%] lg:max-w-[600px]"
+            "md:w-[60%] lg:w-[50%] lg:max-w-[600px]"
             // "border-[1px] border-yellow-900"
           )}>
           <HeroLine>front-end & </HeroLine>
@@ -66,7 +86,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div id='hero_image' className={clsx("md:w-[40%] w-[100%]", "flex justify-center")}>
+        <div id='hero_image' className={clsx("md:w-[40%] lg:w-[50%] w-[100%]", "flex justify-center")}>
           <div className={clsx("w-[100%] flex justify-center", "p-6")}>{CurrentHero}</div>
         </div>
       </div>
