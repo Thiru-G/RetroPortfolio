@@ -7,12 +7,7 @@ interface BodyTextProps {
   weight: string;
 }
 
-export default function BodyText({
-  children,
-  color,
-  uppercase,
-  weight = "font-300",
-}: BodyTextProps) {
+export default function BodyText({ children, color, uppercase, weight = "font-300" }: BodyTextProps) {
   return (
     <p
       className={clsx(

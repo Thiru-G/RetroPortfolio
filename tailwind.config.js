@@ -55,12 +55,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero_bg: "url('/bg/bg_1.jpg')",
-        dark_glass:
-          "linear-gradient(170.26deg, #303030 0%, rgba(48, 48, 48, 0) 100%)",
+        dark_glass: "linear-gradient(170.26deg, #303030 0%, rgba(48, 48, 48, 0) 100%)",
       },
       boxShadow: {
-        dark_glass_shadow:
-          "0px 12px 35px rgba(0, 0, 0, 0.25)",
+        dark_glass_shadow: "0px 12px 35px rgba(0, 0, 0, 0.25)",
       },
     },
   },
