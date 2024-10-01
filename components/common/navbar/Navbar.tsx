@@ -62,7 +62,7 @@ export default function Navbar() {
             `${showMobileMenu ? "fixed" : "relative"}`
           )}>
           <HeaderText color={"text-white-1000"}>
-            JG
+            TS
           </HeaderText>
         </div>
 

@@ -64,7 +64,7 @@ export default function About() {
       icon={<ImPacman />}>
       <>
         <div className={clsx("w-full ")}>
-          <HeaderLine>Juan gonzalez</HeaderLine>
+          <HeaderLine>Thirumalai Srinivasan G</HeaderLine>
         </div>
 
         <div

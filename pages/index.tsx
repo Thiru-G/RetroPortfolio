@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Welcome to my portfolio</title>
+        <title>Thiru's Portfolio</title>
         <link rel='shortcut icon' href='./ico/ico.svg' />
       </Head>
 

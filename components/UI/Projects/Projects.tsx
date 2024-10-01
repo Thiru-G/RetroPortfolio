@@ -6,31 +6,44 @@ import clsx from "clsx";
 import CommandLine from "@/components/common/consoles/console_lines/CommandLine";
 import ProyectCard from "@/components/common/cards/ProyectCard";
 import { useRouter } from "next/router";
+import Readmore from "@/components/common/readmore";
 import {
   GiDeliveryDrone,
   GiMaterialsScience,
+  GiSittingDog,
+  GiSniffingDog,
 } from "react-icons/gi";
+import {
+  CiAirportSign1,
+} from "react-icons/ci";
 import { IoMdPlanet } from "react-icons/io";
 import { BsFillPinMapFill } from "react-icons/bs";
-import { MdCatchingPokemon } from "react-icons/md";
+import { MdBiotech, MdCatchingPokemon } from "react-icons/md";
 import Logo from "@/components/common/icons/Logo";
-
+import { read } from "fs";
+const projectDescription1 = `SniffSpace is a platform designed to train dogs using positive reinforcement to detect specific volatile organic compounds (VOCs) present in a person's breath sample, which may indicate the presence of cancer. The platform focuses on enhancing the dogs' natural olfactory abilities through a structured and supportive training regimen, ensuring they can reliably detect these VOCs and contribute to early cancer detection efforts.
+Sniffspace contains 8 cabins and each cabin contain a sniff port. Which is a hole under which samples (Masks containing breath VOCs) are placed. Dogs start sniffing the ports and if they find the positive sample, they are given treats.`;
+const projectDescription2 = 'Beacon Mesh Fleet Tracking System (Alpha Data LLC - Dubai Airport, UAE)Developed a Proof of Concept (POC) for a fleet management system at Dubai Airport. The system, leveraging beacon mesh technology, demonstrated 35% higher accuracy than GPS, and reduced latency by 12x, ensuring better real-time tracking. This innovative solution was presented to Alpha Data LLC, showcasing its potential to revolutionize fleet tracking efficiency at large-scale facilities like airports.'
 export default function Projects() {
   const router = useRouter();
   const [projects, setProjects] = useState([
     {
       id: 0,
-      icon: <Logo />,
-      title: "JohnScript YouTube",
-      description: `I started a YouTube Channel, where I teach how to start and use Three.js mainly with React, also a little bit of WebXR. `,
-      techs: [
-        "Three.js",
-        "React-Three-Fiber",
-        "WebXR",
-        "React",
-        "Typescript",
-        "Blender",
-      ],
+      icon: <GiSniffingDog />,
+      title: "Sniffspace : Dognosis",
+      description: <Readmore description={projectDescription1} />,
+      techs:
+      [
+            "Microcontroller programming (Firmware)",
+            "Servo motor control",
+            "Sensor integration",
+            "Communication Protocols",
+            "Networking and IP management (mDNS, DHCP)",
+            "3D modeling (CAD software like SolidWorks, Fusion 360)",
+            "3D printing",
+            "Prototyping and iterative design"
+    ]
+      ,
       linkTo: () =>
         window.open(
           "https://www.youtube.com/c/JohnScript72",
@@ -39,9 +52,9 @@ export default function Projects() {
     },
     {
       id: 1,
-      icon: <GiDeliveryDrone />,
-      title: "Drone-It YourSelf",
-      description: `This is a little project made in React and Three.js, where I explore the capabilities of Three.js for change a scene in hot reload(still working).`,
+      icon: <CiAirportSign1 />,
+      title: "Fleet Tracking : DXB Airport ",
+      description: <Readmore description={projectDescription2} />,
       techs: ["Three.js", "WebXR", "React"],
       linkTo: () =>
         window.open(

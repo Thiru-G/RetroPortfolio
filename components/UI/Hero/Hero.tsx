@@ -70,9 +70,9 @@ export default function Hero() {
             "md:w-[60%] lg:w-[50%] lg:max-w-[600px]"
             // "border-[1px] border-yellow-900"
           )}>
-          <HeroLine>front-end & </HeroLine>
-          <HeroLine>back-end dev</HeroLine>
-          <HeroLine>in just one</HeroLine>
+          <HeroLine>Embedded Systems</HeroLine>
+          <HeroLine>IOT</HeroLine>
+          <HeroLine>Electronics</HeroLine>
           <div className={clsx("py-3 lg:pl-[45px] flex flex-wrap gap-3", "pl-[10px]")}>
             <PrimaryButton event={() => window.open("https://github.com/SirJohn72-script", "_blank")}>
               GitHub

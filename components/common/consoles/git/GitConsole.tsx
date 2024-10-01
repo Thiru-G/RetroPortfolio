@@ -32,7 +32,7 @@ export default function GitConsole({
     <div className={clsx("flex gap-2 items-center")}>
       <MinConsoleText color={"text-blue-900"}>
         {windowWidth >= 576
-          ? "Juan's Portfolio"
+          ? "Thiru's Portfolio"
           : "Portfolio"}
       </MinConsoleText>
       <MinConsoleText color={"text-blue-600"}>

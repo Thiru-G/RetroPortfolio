@@ -20,7 +20,7 @@ export const PlayerSound = () => {
   React.useEffect(() => {
     // Cargar la canción
     const sound = new Howl({
-      src: ["./sounds/ToPonderGodmode.mp3"],
+      src: ["./sounds/Strangerthingsxilayaraja.mp3"],
       html5: true,
       volume: 0.7,
       loop: true,
@@ -104,7 +104,7 @@ export const PlayerSound = () => {
           className={clsx(
             "font-300 font-main text-14p text-white-1000"
           )}>
-          Music: To Ponder - GodMode
+          Music: STRANGER THINGS THEME : ILAIYARAAJA'S VERSION
         </p>
         <div className='flex gap-3 w-full'>
           <div onClick={() => togglePlay()}>
